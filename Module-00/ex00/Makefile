@@ -16,7 +16,7 @@ SRCS = megaphone.cpp
 
 CXX = c++
 
-RM = rm -rf
+RM = /bin/rm -rf
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 OBJS = $(SRCS:.cpp=.o)
@@ -33,4 +33,6 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY : all clean fclean re
 
