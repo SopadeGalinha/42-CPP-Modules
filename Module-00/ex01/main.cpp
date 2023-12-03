@@ -14,22 +14,6 @@
 
 // PhoneBook
 
-// COLORS
-# define RESET			"\001\033[0m\002"
-# define BOLD_RED		"\001\033[1;31m\002"
-# define BOLD_ORANGE	"\001\033[1;33m\002"
-# define BOLD_PURPLE	"\001\033[1;35m\002"
-# define BOLD_GREY		"\001\033[1;39m\002"
-# define BOLD_GREEN		"\001\033[1;92m\002"
-# define BOLD_BLUE		"\001\033[1;94m\002"
-# define BOLD_CYAN		"\001\033[1;96m\002"
-# define BOLD_WHITE		"\001\033[1;97m\002"
-# define BOLD_PURPLE_FLASH	"\001\033[1;3;5;35m"
-
-#define PROMPT_MESSAGE		BOLD_PURPLE_FLASH "Enter a command: " RESET
-
-// Convert string to lowercase
-
 void printMenu() {
 	std::cout << BOLD_GREEN <<"\n	**** WELCOME TO PHONEBOOK **** \n" << RESET << std::endl;
 	std::cout << BOLD_CYAN << "1. ADD CONTACT	- to add a new contact" << std::endl;
@@ -83,6 +67,7 @@ int inputParser(std::string& command) {
 
 int	main(void)
 {
+	PhoneBook		phonebook;
 	std::string		command;
 
 	printMenu();
@@ -95,17 +80,18 @@ int	main(void)
 		switch (inputParser(command))
 		{
 			case 1:
-				std::cout << "ADD CONTACT" << std::endl;
+				phonebook.addContact();
 				break ;
 			case 2:
 				std::cout << "SEARCH CONTACT" << std::endl;
 				break ;
 			case 3:
-				std::cout << "EXIT PHONEBOOK" << std::endl;
+				std::cout << BOLD_GREEN << "Bye bye :)" << RESET << std::endl;
 				return (0);
 			default:
 				std::cout << BOLD_RED << "Invalid command!" << RESET << std::endl;
 				break ;
 		}
 	}
+	return (0);
 }
