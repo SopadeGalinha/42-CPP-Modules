@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "Phonebook.hpp"
 
 // Constructor
 PhoneBook::PhoneBook(void) {
@@ -25,7 +25,7 @@ PhoneBook::~PhoneBook(void) {
 }
 
 // Methods
-void	PhoneBook::addContact(void) {
+/* void	PhoneBook::addContact(void) {
 	try {
 		if (this->contactsCount == 8)
 			std::string(BOLD_ORANGE "Phonebook is full. Overwriting the oldest contact." RESET);
@@ -39,4 +39,4 @@ void	PhoneBook::addContact(void) {
 		std::cout << BOLD_RED << "Error: " << exception_message.what() << RESET << std::endl;
 	}
 	return ;
-}
+} */

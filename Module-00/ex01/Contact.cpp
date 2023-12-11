@@ -64,19 +64,20 @@ std::string	Contact::getNickname(void) {
 std::string	Contact::getPhoneNumber(void) {
 	return (this->phoneNumber);
 }
-
+/* 
 std::string	Contact::getDarkestSecret(void) {
 	return (this->darkestSecret);
 }
-
+ */
 // Methods
-
+/* 
 void	Contact::setContact(void) {
 	std::string		input;
 
-}
+} */
 
-bool getInput(std::string& command) {
+bool Contact::getInput(std::string command) {
+	std::cout << PROMPT_MESSAGE;
 	if (!std::getline(std::cin, command)){
 		if (std::cin.eof())
 			std::cout << BOLD_RED \
@@ -86,7 +87,7 @@ bool getInput(std::string& command) {
 	return true;
 }
 
-void	Contact::setInput(std::string& prompt, void (Contact::*setter)(std::string)) {
+/* void	Contact::setInput(std::string& prompt, void (Contact::*setter)(std::string)) {
 	std::string		input;
 	for (int retry = 0; retry < 3; retry++) {
 		std::cout << BOLD_CYAN_ITALIC "Enter your " << prompt << ": " RESET;
@@ -98,4 +99,4 @@ void	Contact::setInput(std::string& prompt, void (Contact::*setter)(std::string)
 		return ;
 	}
 	throw std::runtime_error("Invalid input!");
-}
+} */

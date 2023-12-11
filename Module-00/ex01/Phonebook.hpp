@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-ifndef PHONEBOOK_HPP
+#ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
 // Includes
@@ -30,5 +30,6 @@ class PhoneBook {
 
 		// Methods
 		void	addContact(void);
-# endif
 };
+
+# endif

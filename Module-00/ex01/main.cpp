@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Phonebook.hpp"
 
 // PhoneBook
-
 void printMenu() {
 	std::cout << BOLD_GREEN <<"\n	**** WELCOME TO PHONEBOOK **** \n" << RESET << std::endl;
 	std::cout << BOLD_CYAN << "1. ADD CONTACT	- to add a new contact" << std::endl;
@@ -43,17 +42,6 @@ void ft_tolower(std::string& str) {
     }
 }
 
-bool getInput(std::string& command) {
-	std::cout << PROMPT_MESSAGE;
-	if (!std::getline(std::cin, command)){
-		if (std::cin.eof())
-			std::cout << BOLD_RED \
-			<< "\nError reading command!" << RESET << std::endl;
-		return false;
-	}
-	return true;
-}
-
 int inputParser(std::string& command) {
     ft_tolower(command);
 	if (is_add(command))
@@ -73,14 +61,15 @@ int	main(void)
 	printMenu();
 	while (true)
 	{
-		if (!getInput(command))
+		if (getInput(command))
 			break ;
 		if (command.empty() || command == " ")
 			continue ;
 		switch (inputParser(command))
 		{
 			case 1:
-				phonebook.addContact();
+				// phonebook.addContact();
+				std::cout << "ADD CONTACT" << std::endl;
 				break ;
 			case 2:
 				std::cout << "SEARCH CONTACT" << std::endl;
