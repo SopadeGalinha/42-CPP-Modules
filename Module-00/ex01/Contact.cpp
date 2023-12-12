@@ -22,81 +22,62 @@ Contact::~Contact(void) {
 	return ;
 }
 
-// Setters
-void	Contact::setFirstName(std::string firstName) {
-	this->firstName = firstName;
-	return ;
-}
-
-void	Contact::setLastName(std::string lastName) {
-	this->lastName = lastName;
-	return ;
-}
-
-void	Contact::setNickname(std::string nickname) {
-	this->nickname = nickname;
-	return ;
-}
-
-void	Contact::setPhoneNumber(std::string phoneNumber) {
-	this->phoneNumber = phoneNumber;
-	return ;
-}
-
-void	Contact::setDarkestSecret(std::string darkestSecret) {
-	this->darkestSecret = darkestSecret;
-	return ;
-}
-
-// Getters
-std::string	Contact::getFirstName(void) {
-	return (this->firstName);
-}
-
-std::string	Contact::getLastName(void) {
-	return (this->lastName);
-}
-
-std::string	Contact::getNickname(void) {
-	return (this->nickname);
-}
-
-std::string	Contact::getPhoneNumber(void) {
-	return (this->phoneNumber);
-}
-/* 
-std::string	Contact::getDarkestSecret(void) {
-	return (this->darkestSecret);
-}
- */
-// Methods
-/* 
 void	Contact::setContact(void) {
-	std::string		input;
-
-} */
-
-bool Contact::getInput(std::string command) {
-	std::cout << PROMPT_MESSAGE;
-	if (!std::getline(std::cin, command)){
-		if (std::cin.eof())
-			std::cout << BOLD_RED \
-			<< "\nError reading command!" << RESET << std::endl;
-		return false;
-	}
-	return true;
+	std::string message = "first name";
+	if (!setInput(message, &Contact::setFirstName))
+		return ;
+	message = "last name";
+	if (!setInput(message, &Contact::setLastName))
+		return ;
+	message = "nickname";
+	if (!setInput(message, &Contact::setNickname))
+		return ;
+	message = "phone number";
+	if (!setInput(message, &Contact::setPhoneNumber))
+		return ;
+	message = "darkest secret";
+	if (!setInput(message, &Contact::setDarkestSecret))
+		return ;
+	return ;
 }
 
-/* void	Contact::setInput(std::string& prompt, void (Contact::*setter)(std::string)) {
-	std::string		input;
-	for (int retry = 0; retry < 3; retry++) {
-		std::cout << BOLD_CYAN_ITALIC "Enter your " << prompt << ": " RESET;
-		if (!getInput(input))
-			return ;
-		if (input.empty() || input == " ")
-			continue ;
-		(this->*setter)(input);
-		return ;
+void	Contact::setFirstName(std::string firstName) {
+	std::string::iterator it;
+	bool isAlpha = true;
+
+	if (firstName.empty()) {
+		throw std::invalid_argument("Empty first name.");
+	}	
+	for (it = firstName.begin(); it < firstName.end(); ++it) {
+		if (!std::isalpha(*it)) {
+			isAlpha = false;
+			break ;
+		}
 	}
-	throw std::runtime_error("Invalid input!");
-} */
+	if (!isAlpha) {
+		throw std::invalid_argument("Invalid first name.");
+	}
+	this->firstName = firstName;
+}
+
+bool	Contact::setInput(std::string& message, void (Contact::*func)(std::string&)) {
+	std::string input;
+
+	for (int retry = 0; retry < 3; retry++) {
+		std::cout << BOLD_GREEN "Enter " << message << ": ";
+		if (!std::getline(std::cin, input)) {
+			if (std::cin.eof())
+				std::cout << BOLD_RED \
+				<< "\nError reading input!" << RESET << std::endl;
+			return false;
+		}
+		if (input.empty()) {
+			std::cout << BOLD_RED "Invalid input. Please try again." RESET << std::endl;
+			continue ;
+		}
+		(this->*func)(input);
+		return true;
+	}
+	throw std::runtime_error("Too many retries. Aborting...");
+	return false;
+}

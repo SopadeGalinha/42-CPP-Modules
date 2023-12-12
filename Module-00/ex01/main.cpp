@@ -13,14 +13,6 @@
 #include "Phonebook.hpp"
 
 // PhoneBook
-void printMenu() {
-	std::cout << BOLD_GREEN <<"\n	**** WELCOME TO PHONEBOOK **** \n" << RESET << std::endl;
-	std::cout << BOLD_CYAN << "1. ADD CONTACT	- to add a new contact" << std::endl;
-	std::cout << BOLD_CYAN << "2. SEARCH CONTACT	- to search a contact" << std::endl;
-	std::cout << BOLD_CYAN << "3. EXIT PHONEBOOK	- to exit the phonebook" << std::endl;
-	std::cout << std::string(50, '-') << std::endl;
-}
-
 
 bool is_add(std::string& command) {
 	return (command == "add" || command == "1" || command == "add contact");
@@ -35,7 +27,7 @@ bool is_exit(std::string& command) {
 }
 
 void ft_tolower(std::string& str) {
-    for (int i = 0; i < str.length(); i++) {
+    for (int i = 0; i < (int)str.length(); i++) {
         if (std::isupper(str[i])) {
             str[i] = std::tolower(str[i]);
         }
@@ -43,7 +35,7 @@ void ft_tolower(std::string& str) {
 }
 
 int inputParser(std::string& command) {
-    ft_tolower(command);
+	ft_tolower(command);
 	if (is_add(command))
 		return 1;
 	if (is_search(command))
@@ -53,22 +45,32 @@ int inputParser(std::string& command) {
     return 0;
 }
 
+bool getInput(std::string& command) {
+	std::cout << PROMPT_MESSAGE;
+	if (!std::getline(std::cin, command)){
+		if (std::cin.eof())
+			std::cout << BOLD_RED \
+			<< "\nError reading command!" << RESET << std::endl;
+		return false;
+	}
+	return true;
+}
+
 int	main(void)
 {
-	PhoneBook		phonebook;
+	PhoneBook		pb;
 	std::string		command;
 
 	printMenu();
 	while (true)
 	{
-		if (getInput(command))
+		if (!getInput(command))
 			break ;
 		if (command.empty() || command == " ")
 			continue ;
 		switch (inputParser(command))
 		{
 			case 1:
-				// phonebook.addContact();
 				std::cout << "ADD CONTACT" << std::endl;
 				break ;
 			case 2:

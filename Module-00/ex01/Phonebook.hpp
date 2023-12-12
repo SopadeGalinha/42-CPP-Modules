@@ -18,8 +18,8 @@
 
 // PhoneBook class
 class PhoneBook {
-	// Attributes
 	private:
+		// Attributes
 		int			index;
 		int			contactsCount;
 		Contact		contacts[8];
@@ -31,5 +31,6 @@ class PhoneBook {
 		// Methods
 		void	addContact(void);
 };
+	void printMenu();
 
 # endif

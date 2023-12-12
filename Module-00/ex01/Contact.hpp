@@ -43,23 +43,18 @@ private:
 	std::string		nickname;
 	std::string		phoneNumber;
 	std::string		darkestSecret;
-	bool getInput(std::string command);
 public:
 	// Constructor and destructor
 	Contact(void);
 	~Contact(void);
 
-	// Setters and getters
-	void	setFirstName(std::string firstName);
-	void	setLastName(std::string lastName);
-	void	setNickname(std::string nickname);
-	void	setPhoneNumber(std::string phoneNumber);
-	void	setDarkestSecret(std::string darkestSecret);
+	// Setter
+	void			setFirstName(std::string firstName);
 
-	std::string	getFirstName(void);
-	std::string	getLastName(void);
-	std::string	getNickname(void);
-	std::string	getPhoneNumber(void);
+	// Methods
+	void			setContact(void);
+	bool			setInput(std::string& message, void (Contact::*func)(std::string&));
+
 };
 
 #endif // CONTACT_HPP
