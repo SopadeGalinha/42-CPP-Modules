@@ -17,6 +17,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include <sstream>
 
 // COLORS
 #define RESET				"\001\033[0m\002"
@@ -49,11 +50,25 @@ public:
 	~Contact(void);
 
 	// Setter
+	void			setInput(std::string input, std::string& value);
 	void			setFirstName(std::string firstName);
-
+	void			setLastName(std::string lastName);
+	void			setNickname(std::string nickname);
+	void			setPhoneNumber(std::string phoneNumber);
+	void			setDarkestSecret(std::string darkestSecret);
+	bool			validateName(std::string& name);
+	bool			validatePhoneNumber(std::string& phoneNumber);
+	void			clearInput(std::string& input);
+	void			printContact(void);
 	// Methods
 	void			setContact(void);
-	bool			setInput(std::string& message, void (Contact::*func)(std::string&));
+
+	// Getters
+	std::string		getFirstName(void);
+	std::string		getLastName(void);
+	std::string		getNickname(void);
+	std::string		getPhoneNumber(void);
+	std::string		getDarkestSecret(void);
 
 };
 
