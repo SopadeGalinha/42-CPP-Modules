@@ -52,7 +52,7 @@ void	Contact::setInput(std::string input, std::string& value) {
 		break ;
 	}
 	if (retry == 3) {
-		throw std::runtime_error("Contact not added: Too many attempts.");
+		throw std::runtime_error("Too many attempts.");
 	}
 	return ;
 }
@@ -72,7 +72,7 @@ void	Contact::setContact(void) {
 		clearInput(this->nickname);
 		clearInput(this->phoneNumber);
 		clearInput(this->darkestSecret);
-		std::cout << BOLD_RED << e.what() << RESET << std::endl;
+		throw;
 	}
 	return ;
 }

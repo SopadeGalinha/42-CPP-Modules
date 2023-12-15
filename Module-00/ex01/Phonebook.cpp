@@ -30,7 +30,7 @@ void	PhoneBook::addContact(void) {
 		this->contacts[this->index % _MAX_CONTACTS].setContact();
 		if (this->contactsCount < _MAX_CONTACTS)
 			this->contactsCount++;
-		else
+		else 
 			std::cout << BOLD_YELLOW << "Phonebook is full!" << RESET << "\nOldest register have been replaced." << std::endl;
 		this->index++;
 	}
@@ -91,24 +91,33 @@ bool getInput(std::string& command) {
 }
 
 void PhoneBook::searchContact(void) {
-	std::stringstream	ss;
+	std::stringstream	str_index;
 	std::string 		input;
 
 	std::cout << std::endl;
-	print_line("Index", "First Name", "Last Name", "Nickname");
-	print_line("-----------", "-----------", "-----------", "-----------");
+	std::cout << BOLD_WHITE << " ___________________________________________________" << std::endl;
+	std::cout << BOLD_WHITE << "|   Index    | First Name | Last Name  |  Nickname  |" << std::endl;
+	std::cout << BOLD_WHITE << "|------------|------------|------------|------------|" << std::endl;
 	for (int i = 0; i < this->contactsCount; i++) {
-		ss.str("");
-		ss << i + 1;
-		print_line(ss.str(), this->contacts[i].getFirstName(), this->contacts[i].getLastName(), this->contacts[i].getNickname());
+		str_index.str("");
+		str_index << i + 1;
+		print_line(str_index.str(), this->contacts[i].getFirstName(), this->contacts[i].getLastName(), this->contacts[i].getNickname());
 	}
-	std::cout << std::endl;
-	std::cout << "Enter the index of the contact you want to see: ";
+	std::cout << BOLD_WHITE << "|---------------------------------------------------|" << std::endl;
+	std::cout << BOLD_CYAN_ITALIC << "\nEnter the index of the contact you want to see: " << RESET;
+	std::cout << BOLD_WHITE << "\nOr enter 0 to return to main menu: " << RESET;
 	std::getline(std::cin, input);
-	if (input.length() == 1 && input[0] >= '0' && input[0] <= '7' && input[0] - '0' < this->contactsCount)
-		this->contacts[input[0] - '0'].printContact();
-	else
+	if (input.length() == 1 && input[0] >= '0' && input[0] <= '8' && input[0] - '0' <= this->contactsCount) {
+		if (input[0] - '0' == 0) {
+			std::cout << BOLD_YELLOW << "\n Returning to main menu...\n" << RESET << std::endl;
+		}
+		else
+			this->contacts[(input[0] - '0' - 1)].printContact();
+	}
+	else {
 		std::cout << BOLD_RED << "\nError: Invalid index.\n" << RESET << std::endl;
+		std::cout << BOLD_YELLOW << "Returning to main menu...\n" << RESET << std::endl;
+	}
 	return ;
 }
 
@@ -136,7 +145,7 @@ void	print_field(std::string field) {
 	else {
 		truncatedText = field;
 	}
-	padding = 10 - truncatedText.length();
+	padding = 11 - truncatedText.length();
 	for (int i = 0; i < padding; ++i) {
 		std::cout << " ";
 	}

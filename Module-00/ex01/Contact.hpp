@@ -18,6 +18,7 @@
 #include <stdexcept>
 #include <string>
 #include <sstream>
+#include <cstdlib>
 
 // COLORS
 #define RESET				"\001\033[0m\002"
