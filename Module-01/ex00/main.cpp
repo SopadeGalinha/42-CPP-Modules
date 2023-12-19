@@ -38,5 +38,10 @@ int	main(void)
 	std::cout << BLUE << "\nDeleting the Zombie object..." << RESET << std::endl;
 	delete zombieHeap;	
 	std::cout << GREEN << "\tZombie object deleted." << RESET << std::endl;
+
+	std::cout << BLUE << "\nTesting automatic Zombie creation with randomChump():" << RESET << std::endl;
+	std::cout << GREEN << "\tCalling randomChump()..." << RESET << std::endl;
+	randomChump("AutomaticZombie");
+	std::cout << GREEN << "\tZombie created." << RESET << std::endl;	
 	return (0);
 }

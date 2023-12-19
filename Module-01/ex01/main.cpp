@@ -30,6 +30,7 @@ int	main(void)
 	callingZombieHorde(hordeCount, hordeSize, hordeNames, horde);
 	callingAnnounce(hordeCount, hordeSize, horde);
 	deleteHordes(hordeCount, horde);
+	std::cout << BLUE << "End of the program." << RESET << std::endl;
 	return (0);
 }
 
