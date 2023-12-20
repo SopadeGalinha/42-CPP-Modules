@@ -14,7 +14,7 @@ NAME = moarBrainz
 
 SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp zombieHorde.cpp
 
-CC = clang++
+CC = c++
 OBJS = $(SRCS:.cpp=.o)
 
 FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic-errors -fsanitize=address

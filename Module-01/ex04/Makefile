@@ -5,16 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jhogonca <jhogonca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/16 13:55:31 by jhogonca          #+#    #+#              #
-#    Updated: 2023/12/16 13:55:31 by jhogonca         ###   ########.fr        #
+#    Created: 2023/12/20 14:13:05 by jhogonca          #+#    #+#              #
+#    Updated: 2023/12/20 14:13:05 by jhogonca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = brainz
+NAME = replace
 
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS = main.cpp
 
 CC = c++
+
 OBJS = $(SRCS:.cpp=.o)
 
 FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic-errors -fsanitize=address

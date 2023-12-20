@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = weapon
+NAME = violence
 
 SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
