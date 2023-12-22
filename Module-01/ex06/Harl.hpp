@@ -25,17 +25,10 @@
 #define PURPLE	"\033[1m\033[35m"
 #define WHITE	"\033[1m\033[37m"
 
-enum e_levels {
-	DEBUG,
-	INFO,
-	WARNING,
-	ERROR
-};
-
 class Harl
 {
 private:
-	e_levels	_filter;
+	// Private methods
 	void	_debug(void);
 	void	_info(void);
 	void	_warning(void);
@@ -45,14 +38,10 @@ public:
 	// Constructor & Destructor
 	Harl(void);
 	~Harl(void);
+
 	// Member functions
 	void	complain(const std::string& level);
-
-	// Setters
-	void	setFilter(const std::string& filter);
-
-	// Getters
-	e_levels	getFilter(void) const;
+	void	filter(const std::string& level);
 };
 
 #endif

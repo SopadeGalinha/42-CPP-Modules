@@ -140,7 +140,7 @@ void	print_field(std::string field) {
 	int 		padding;
 	
 	if (field.length() > 10) {
-		truncatedText = field.substr(0, 8) + "..";
+		truncatedText = field.substr(0, 9) + ".";
 	} 
 	else {
 		truncatedText = field;

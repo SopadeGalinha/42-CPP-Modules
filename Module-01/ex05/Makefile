@@ -21,10 +21,12 @@ FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic-errors -fsanitize=address
 CC = c++
 
 all: $(NAME)
-	$(CC) $(FLAGS) $(SRCS) -o $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+
+%.o: %.cpp
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJS)

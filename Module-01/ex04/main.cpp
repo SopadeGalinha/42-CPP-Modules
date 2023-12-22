@@ -62,7 +62,7 @@ void search_and_replace(const std::string &filename,
 			if (!input_file.eof())
 				output_file << line << std::endl;
 			else
-				output_file << line
+				output_file << line;
 		}
 		std::cout << GREEN << "\nFile successfully replaced." << RESET << std::endl;
 		input_file.close();

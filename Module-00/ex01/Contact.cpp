@@ -100,10 +100,6 @@ bool	Contact::validatePhoneNumber(std::string& phoneNumber) {
 			return false;
 		}
 	}
-	if (phoneNumber.length() < 9 || phoneNumber.length() > 12) {
-		std::cout << BOLD_YELLOW << "Phone number must contain 9 to 12 digits. " << RESET << std::endl;
-		return false;
-	}
 	return true;
 }
 

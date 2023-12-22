@@ -22,7 +22,7 @@ CXX = c++
 
 RM = /bin/rm -rf
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic-errors -fsanitize=address
 
 $(OBJS_DIR)%.o: %.cpp
 	@mkdir -p $(OBJS_DIR)

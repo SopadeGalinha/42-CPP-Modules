@@ -25,7 +25,7 @@ Harl::~Harl(void) {
 // Private methods
 void	Harl::_debug(void) {
 	std::cout << BLUE << "[DEBUG]\t- I love having extra bacon for my\n";
-	std::cout << "7XL-double-cheese-triple-pickle-special-ketchup burger. ";
+	std::cout << "\n7XL-double-cheese-triple-pickle-special-ketchup burger. ";
 	std::cout << "I really do!" << RESET << std::endl;
 }
 
