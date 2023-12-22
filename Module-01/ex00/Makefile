@@ -42,7 +42,7 @@ doAll: all
 	make -s -C ../ex05
 	make -s -C ../ex06
 
-fcleanAll: fclean 
+fcleanAll: fclean
 	make fclean -s -C ../ex01
 	make fclean -s -C ../ex02
 	make fclean -s -C ../ex03
