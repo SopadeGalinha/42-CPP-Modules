@@ -13,7 +13,7 @@
 #include "Fixed.hpp"
 
 // Constructor
-Fixed::Fixed(void) : _rawBits(1.75) {
+Fixed::Fixed(void) : _rawBits(0) {
 	std::cout << GREEN << "Fixed - Default constructor called" << RESET << std::endl;
 	return ;
 }
