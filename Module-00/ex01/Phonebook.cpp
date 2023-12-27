@@ -103,7 +103,7 @@ void PhoneBook::searchContact(void) {
 		str_index << i + 1;
 		print_line(str_index.str(), this->contacts[i].getFirstName(), this->contacts[i].getLastName(), this->contacts[i].getNickname());
 	}
-	std::cout << BOLD_WHITE << "|---------------------------------------------------|" << std::endl;
+	std::cout << BOLD_WHITE << "|---------------------------------------------------|" << std::endl; 
 	std::cout << BOLD_CYAN_ITALIC << "\nEnter the index of the contact you want to see: " << RESET;
 	std::cout << BOLD_WHITE << "\nOr enter 0 to return to main menu: " << RESET;
 	std::getline(std::cin, input);

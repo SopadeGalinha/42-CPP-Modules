@@ -32,12 +32,13 @@ void	Contact::setInput(std::string input, std::string& value) {
 		std::cout << BOLD_GREEN << "Enter " << input << ": " << RESET;
 		std::getline(std::cin, value);
 
+		// Check if input is empty
 		if (value.empty()) {
 			std::cout << BOLD_YELLOW << "Empty input. Please try again." << RESET << std::endl;
 			continue ;
 		}
 
-		if (input == "first name" || input == "last name" || input == "nickname") {
+		if (input == "first name" || input == "last name") {
 			if (!Contact::validateName(value)) {
 				std::cout << BOLD_YELLOW << "Invalid input. Please try again." << RESET << std::endl;
 				continue ;
@@ -80,13 +81,8 @@ void	Contact::setContact(void) {
 bool	Contact::validateName(std::string& name) {
 
 	for (int i = 0; i < (int)name.length(); i++) {
-		if (!std::isalpha(name[i]) && name != "nickname") {
+		if (!std::isalpha(name[i])) {
 			return false;
-		}
-		if (name == "nickname") {
-			if (!std::isalnum(name[i]) && name[i] != '_' && name[i] != '-') {
-				return false;
-			}
 		}
 	}
 	return true;
