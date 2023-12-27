@@ -78,40 +78,6 @@ void	Contact::setContact(void) {
 	return ;
 }
 
-bool	Contact::validateName(std::string& name) {
-
-	for (int i = 0; i < (int)name.length(); i++) {
-		if (!std::isalpha(name[i])) {
-			return false;
-		}
-	}
-	return true;
-}
-
-bool	Contact::validatePhoneNumber(std::string& phoneNumber) {
-	for (int i = 0; i < (int)phoneNumber.length(); i++)
-	{
-		if (!std::isdigit(phoneNumber[i])) {
-			std::cout << BOLD_YELLOW << "Phone number must contain only digits." << RESET << std::endl;
-			return false;
-		}
-	}
-	return true;
-}
-
-void	Contact::clearInput(std::string& input) {
-	input.clear();
-	return ;
-}
-
-void	Contact::printContact(void) {
-	std::cout << BOLD_WHITE << "\nFirst name: " << RESET << this->firstName << std::endl;
-	std::cout << BOLD_WHITE << "Last name: " << RESET << this->lastName << std::endl;
-	std::cout << BOLD_WHITE << "Nickname: " << RESET << this->nickname << std::endl;
-	std::cout << BOLD_WHITE << "Phone number: " << RESET << this->phoneNumber << std::endl;
-	std::cout << BOLD_WHITE << "Darkest secret: " << RESET << this->darkestSecret << std::endl;
-	return ;
-}
 
 // Getters
 
@@ -133,4 +99,42 @@ std::string	Contact::getPhoneNumber(void) {
 
 std::string	Contact::getDarkestSecret(void) {
 	return (this->darkestSecret);
+}
+
+// Validations
+bool	Contact::validateName(std::string& name) {
+
+	for (int i = 0; i < (int)name.length(); i++) {
+		if (!std::isalpha(name[i])) {
+			return false;
+		}
+	}
+	return true;
+}
+
+bool	Contact::validatePhoneNumber(std::string& phoneNumber) {
+	for (int i = 0; i < (int)phoneNumber.length(); i++)
+	{
+		if (!std::isdigit(phoneNumber[i])) {
+			std::cout << BOLD_YELLOW << "Phone number must contain only digits." << RESET << std::endl;
+			return false;
+		}
+	}
+	return true;
+}
+
+// Clear input
+void	Contact::clearInput(std::string& input) {
+	input.clear();
+	return ;
+}
+
+// Print contact
+void	Contact::printContact(void) {
+	std::cout << BOLD_WHITE << "\nFirst name: " << RESET << this->firstName << std::endl;
+	std::cout << BOLD_WHITE << "Last name: " << RESET << this->lastName << std::endl;
+	std::cout << BOLD_WHITE << "Nickname: " << RESET << this->nickname << std::endl;
+	std::cout << BOLD_WHITE << "Phone number: " << RESET << this->phoneNumber << std::endl;
+	std::cout << BOLD_WHITE << "Darkest secret: " << RESET << this->darkestSecret << std::endl;
+	return ;
 }
