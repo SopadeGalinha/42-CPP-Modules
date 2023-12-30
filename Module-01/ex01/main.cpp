@@ -36,7 +36,7 @@ int	main(void)
 
 static void 	   callingZombieHorde(int hordeCount, \
 int hordeSize, std::string* hordeNames, Zombie* horde[]) {
-	std::cout << BLUE << "Calling zombieHorde()..." << RESET << std::endl;
+	std::cout << BLUE << "Calling zombieHorde()...\n" << RESET << std::endl;
 	for (int i = 0; i < hordeCount; i++)
 		horde[i] = zombieHorde(hordeSize, hordeNames[i]);
 	std::cout << BLUE << "\nzombieHorde() finished." << RESET << std::endl;

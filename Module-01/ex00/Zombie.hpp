@@ -33,9 +33,9 @@ class Zombie {
 
 		// Setters
 		void setName(std::string name);
-		
 		// Getters
 		std::string getName(void);
+		
 		// Member functions
 		void announce(void);
 };

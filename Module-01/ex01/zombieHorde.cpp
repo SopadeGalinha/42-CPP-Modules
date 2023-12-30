@@ -20,6 +20,6 @@ Zombie* zombieHorde(int N, std::string name) {
 		std::string zombieName = name + "'s zombie No." + ss.str();
 		horde[i].setName(zombieName);
 	}
-	std::cout << BLUE << name << " horde created." << RESET << std::endl;
+	std::cout << BLUE << name << " horde created.\n" << RESET << std::endl;
 	return horde;
 }
