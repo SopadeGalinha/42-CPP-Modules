@@ -82,10 +82,23 @@ void Fixed::setRawBits(int const raw) {
     _rawBits = raw;
     return ;
 }
-
 ```
+
 This `Fixed` class exemplifies the Orthodox Canonical Class Form by providing a well-defined default constructor, copy constructor, destructor, copy assignment operator, and appropriate setters/getters. Adhering to these conventions ensures proper behavior and resource management throughout the object's lifecycle.
 
+### Constructor Explanation:
+
+```cpp
+Fixed::Fixed(const int value) {
+    std::cout << "Int constructor called" << std::endl;
+    _rawBits = value << fractionalBits;
+    return ;
+}
+```
+
+In the `Fixed` class, the integer constructor is responsible for converting an integer value to the fixed-point representation. The expression `_rawBits = value << fractionalBits;` shifts the binary bits of the integer value to the left by `fractionalBits` positions, effectively multiplying the integer by \(2^{fractionalBits}\). This step is crucial for representing the integer as a fixed-point number with the specified number of fractional bits.
+
+```
 
 Fixed-Point Representation
 Fixed-point representation serves as a method for storing and manipulating numbers with a consistent number of digits to the right of a designated point, unlike the variable positioning of the decimal point in floating-point representation. In this system, precision is achieved through the allocation of both integer and fractional parts, with a focus on the significance of fractional bits.
@@ -113,7 +126,9 @@ private:
     int rawValue;
 
 public:
-    FixedPoint(int integerPart, int fractionalPart) {
+    FixedPoint(int integerPart,
+
+ int fractionalPart) {
         rawValue = (integerPart << fractionalBits) | fractionalPart;
     }
 
@@ -149,14 +164,14 @@ Here are some sample floating-point representations:
 +NaN   0x7fc00000 or 0x7ff00000
 As a programmer, it's crucial to understand the characteristics of your floating-point representation. The following table provides values for both single- and double-precision IEEE floating-point numbers:
 
-| Property                            | Value for float         | Value for double                |
-|-------------------------------------|-------------------------|---------------------------------|
-| Largest representable number         | 3.402823466e+38        | 1.7976931348623157e+308         |
-| Smallest number without losing precision | 1.175494351e-38    | 2.2250738585072014e-308        |
-| Smallest representable number(*)     | 1.401298464e-45        | 5e-324                          |
-| Mantissa bits                       | 23                      | 52                              |
-| Exponent bits                       | 8                       | 11                              |
-| Epsilon(**)                         | 1.1929093e-7           | 2.220446049250313e-16           |
+| Property                                 | Value for float         | Value for double                |
+|------------------------------------------|-------------------------|---------------------------------|
+| Largest representable number             | 3.402823466e+38         | 1.7976931348623157e+308         |
+| Smallest number without losing precision | 1.175494351e-38         | 2.2250738585072014e-308         |
+| Smallest representable number(*)         | 1.401298464e-45         | 5e-324                          |
+| Mantissa bits                            | 23                      | 52                              |
+| Exponent bits                            | 8                       | 11                              |
+| Epsilon(**)                              | 1.1929093e-7            | 2.220446049250313e-16           |
 (*) The smallest representable number introduces another special case where the exponent bits are set to zero, allowing the representation of numbers other than zero.
 
 (**) Epsilon is the smallest (x) such that (1 + x > 1), representing the place value of the least significant bit when the exponent is zero.
