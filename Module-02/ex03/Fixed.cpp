@@ -12,21 +12,18 @@
 
 #include "Fixed.hpp"
 
-// Default constructor
 Fixed::Fixed(void) : _rawBits(0) {
-	return ;
+	// Default constructor
 }
 
 // Int constructor
 Fixed::Fixed(const int value) {
 	_rawBits = value << fractionalBits;
-	return ;
 }
 
 // Float constructor
 Fixed::Fixed(const float value) {
 	_rawBits = roundf(value * (1 << fractionalBits));
-	return ;
 }
 
 // Copy constructor
@@ -34,9 +31,8 @@ Fixed::Fixed(const Fixed &other) : _rawBits(other._rawBits) {
 	*this = other;
 }
 
-// Destructor
 Fixed::~Fixed(void) {
-	return ;
+	// Destructor
 }
 
 // Assignment Operator overload
@@ -130,7 +126,6 @@ int	Fixed::toInt(void) const {
 	return (_rawBits >> fractionalBits);
 }
 
-// Min and Max functions
 Fixed &Fixed::min(Fixed &a, Fixed &b) {
 	return (a < b ? a : b);
 }
