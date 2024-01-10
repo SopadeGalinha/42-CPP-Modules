@@ -34,10 +34,14 @@ class Fixed {
 		Fixed(void);
 		Fixed(const int value);
 		Fixed(const float value);
+
+		//Copy Constructor
 		Fixed(const Fixed &other);
 		
 		// Destructor
-		~Fixed(void); 
+		~Fixed(void);
+
+		// Assignment Operator
 		// Operator overload
 		Fixed	&operator=(const Fixed &other);
 

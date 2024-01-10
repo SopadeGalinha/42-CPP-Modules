@@ -29,7 +29,7 @@ Fixed::~Fixed(void) {
 	std::cout << RED << "Fixed - Destructor called" << RESET << std::endl;
 }
 
-// Operator overload
+// Operator overload - Assignment
 Fixed &Fixed::operator=(const Fixed &other) {
 	std::cout << BLUE << "Fixed - Copy assignment operator called" << RESET << std::endl;
 	if (this == &other)
@@ -38,13 +38,14 @@ Fixed &Fixed::operator=(const Fixed &other) {
 	return (*this);
 }
 
-// Setters and getters
-int	Fixed::getRawBits(void) const {
-	std::cout << GREEN << "Fixed - getRawBits member function called" << RESET << std::endl;
-	return (_rawBits);
-}
-
+// Setter
 void	Fixed::setRawBits(int const raw) {
 	std::cout << GREEN << "Fixed - setRawBits member function called" << RESET << std::endl;
 	_rawBits = raw;
+}
+
+//Getter
+int	Fixed::getRawBits(void) const {
+	std::cout << GREEN << "Fixed - getRawBits member function called" << RESET << std::endl;
+	return (_rawBits);
 }

@@ -49,11 +49,13 @@ class Fixed {
 		bool	operator<=(const Fixed &other) const;
 		bool	operator==(const Fixed &other) const;
 		bool	operator!=(const Fixed &other) const;
+		
 		// Arithmetic Operators overload
 		Fixed	operator+(const Fixed &other) const;
 		Fixed	operator-(const Fixed &other) const;
 		Fixed	operator*(const Fixed &other) const;
 		Fixed	operator/(const Fixed &other) const;
+		
 		// Increment and Decrement Operators overload
 		Fixed	&operator++(void);
 		Fixed	operator++(int);
