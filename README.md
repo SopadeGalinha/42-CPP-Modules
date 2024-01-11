@@ -4,9 +4,9 @@ In C++, a class is a fundamental concept in object-oriented programming, serving
 
 ## Key Concepts:
 
-### Object-Oriented Programming (P.O.O.):
+### Object-Oriented Programming (O.O.P):
 
-Object-Oriented Programming (P.O.O.) is a paradigm that revolves around the concept of "objects," which are instances of classes. It introduces several key principles:
+Object-Oriented Programming (O.O.P) is a paradigm that revolves around the concept of "objects," which are instances of classes. It introduces several key principles:
 
 1. **Classes and Objects:**
    - **Class:** A class is a blueprint or template for creating objects. It defines a data structure along with methods (functions) that operate on the data.
