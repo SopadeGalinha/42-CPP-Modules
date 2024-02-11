@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhogonca <github.com/SopadeGalinha>        +#+  +:+       +#+        */
+/*   By: jhogonca <jhogonca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 21:22:15 by jhogonca          #+#    #+#             */
-/*   Updated: 2024/02/10 12:03:08 by jhogonca         ###   ########.fr       */
+/*   Updated: 2024/02/11 23:16:25 by jhogonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 // Constructor
 FragTrap::FragTrap() : ClapTrap() {
-	cout << BLUE << "[Frag] - FragTrap Default Constructor" << RESET << endl;
+	cout << BLUE << "[Frag] - \tFragTrap Default Constructor" << RESET << endl;
 	this->_name = "Unknown FragTrap";
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
@@ -22,7 +22,7 @@ FragTrap::FragTrap() : ClapTrap() {
 
 // Parameterized Constructor
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
-	cout << BLUE << "[Frag] - FragTrap Parameterized Constructor" << RESET << endl;
+	cout << BLUE << "[Frag] - \tFragTrap Parameterized Constructor" << RESET << endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_attackDamage = 30;
@@ -30,18 +30,18 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 
 // Copy Constructor
 FragTrap::FragTrap(const FragTrap &other) {
-	cout << BLUE << "[Frag] - FragTrap Copy Constructor" << RESET << endl;
+	cout << BLUE << "[Frag] - \tFragTrap Copy Constructor" << RESET << endl;
 	*this = other;
 }
 
 // Destructor
 FragTrap::~FragTrap() {
-	cout << RED << " [Frag] - " << this->_name << " Destroyed" << RESET << endl;
+	cout << RED << "[Frag] - \t" << this->_name << " Destroyed" << RESET << endl;
 }
 
 // Operator Overload
 FragTrap &FragTrap::operator=(const FragTrap &other) {
-	cout << BLUE << "[Frag] - FragTrap Operator Overload" << RESET << endl;
+	cout << BLUE << "[Frag] - \tFragTrap Operator Overload" << RESET << endl;
 	if (this != &other) {
 		ClapTrap::operator=(other);
 	}
@@ -52,7 +52,7 @@ FragTrap &FragTrap::operator=(const FragTrap &other) {
 
 void FragTrap::highFivesGuys(void) {
 	std::cout       \
-	<< "FragTrap "  \
+	<< "[Frag] - \t"  \
 	<< this->_name  \
 	<< " requests a high five!" << std::endl;
 }

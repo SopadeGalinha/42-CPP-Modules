@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jhogonca <github.com/SopadeGalinha>        +#+  +:+       +#+         #
+#    By: jhogonca <jhogonca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/09 16:00:48 by jhogonca          #+#    #+#              #
-#    Updated: 2024/02/10 10:40:25 by jhogonca         ###   ########.fr        #
+#    Updated: 2024/02/11 22:13:35 by jhogonca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = FragTrap
+NAME = DiamondTrap
 
-SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 CXX = c++
 
@@ -20,7 +20,7 @@ OBJS = $(SRCS:.cpp=.o)
 
 WFLAGS = -Wall -Wextra -Werror 
 
-CXX_FLAGS = -std=c++98 -pedantic-errors -fsanitize=address
+CXX_FLAGS = -std=c++98 -pedantic-errors -fsanitize=address -Wshadow -Wno-shadow
 
 all: $(NAME)
 

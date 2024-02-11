@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhogonca <github.com/SopadeGalinha>        +#+  +:+       +#+        */
+/*   By: jhogonca <jhogonca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:31:55 by jhogonca          #+#    #+#             */
-/*   Updated: 2024/02/10 12:13:04 by jhogonca         ###   ########.fr       */
+/*   Updated: 2024/02/11 23:07:19 by jhogonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,28 @@ void printPoints(FragTrap &trap) {
     cout << "Energy Points: " << trap.getEnergyPoints() << endl;
 }
 
+#include "DiamondTrap.hpp"
+
 int main() {
-    printHeader("Creating a FragTrap");
-    FragTrap trap("Frag");
+    // Create a DiamondTrap object
+    printHeader("Creating a DiamondTrap");
+    DiamondTrap diamond("Diamond");
 
-    printHeader("Printing FragTrap attributes");
-    printPoints(trap);
+    // Test inherited FragTrap functionalities
+    printHeader("Printing DiamondTrap attributes");
+    printPoints(diamond);
 
-    printHeader("FragTrap requesting a high five");
-    trap.highFivesGuys();
+    // Test DiamondTrap specific functionality
+    printHeader("DiamondTrap requesting a high five");
+    diamond.highFivesGuys();
+
+    // Test ScavTrap specific functionality
+    printHeader("DiamondTrap guarding the gate");
+    diamond.guardGate();
+
+    // Test DiamondTrap specific functionality
+    printHeader("DiamondTrap introspecting");
+    diamond.whoAmI();
 
     printHeader("End of Program (Destructors will be called automatically)");
 
