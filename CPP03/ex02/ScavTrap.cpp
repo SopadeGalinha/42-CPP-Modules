@@ -6,7 +6,7 @@
 /*   By: jhogonca <jhogonca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 18:59:38 by jhogonca          #+#    #+#             */
-/*   Updated: 2024/02/11 23:18:37 by jhogonca         ###   ########.fr       */
+/*   Updated: 2024/02/13 12:14:51 by jhogonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 // Constructor
 ScavTrap::ScavTrap() {
-    cout << BLUE << "[Skav] -\tScavTrap Default Constructor" << RESET << endl;
+    cout << BLUE << "ScavTrap Default Constructor" << RESET << endl;
     this->_name = "Unknown ScavTrap";
     this->_hitPoints = 100;
     this->_energyPoints = 50;
@@ -25,7 +25,7 @@ ScavTrap::ScavTrap() {
 
 // Parameterized Constructor
 ScavTrap::ScavTrap(string name) {
-    cout << BLUE << "[Skav] -\tScavTrap Parameterized Constructor" << RESET << endl;
+    cout << BLUE << "ScavTrap Parameterized Constructor" << RESET << endl;
     this->_name = name;
     this->_hitPoints = 100;
     this->_energyPoints = 50;
@@ -34,13 +34,13 @@ ScavTrap::ScavTrap(string name) {
 
 // Copy Constructor
 ScavTrap::ScavTrap(const ScavTrap &other) {
-    cout << RED << "[Skav] -\tScavTrap Copy Constructor" << RESET << endl;
+    cout << RED << "ScavTrap Copy Constructor" << RESET << endl;
     *this = other;
 }
 
 // Destructor
 ScavTrap::~ScavTrap() {
-    cout << RED << "[Skav] -\t" << this->_name << " Destroyed" << RESET << endl;
+    cout << RED << this->_name << " Destroyed" << RESET << endl;
 }
 
 //  ----- Member Functions -----  //

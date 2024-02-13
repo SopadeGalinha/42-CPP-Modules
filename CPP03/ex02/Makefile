@@ -6,13 +6,13 @@
 #    By: jhogonca <jhogonca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/09 16:00:48 by jhogonca          #+#    #+#              #
-#    Updated: 2024/02/11 22:13:35 by jhogonca         ###   ########.fr        #
+#    Updated: 2024/02/13 12:14:32 by jhogonca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = DiamondTrap
+NAME = FragTrap
 
-SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 CXX = c++
 

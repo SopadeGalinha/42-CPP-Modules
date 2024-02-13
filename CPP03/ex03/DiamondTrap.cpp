@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
+
 // Constructor
 DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap() {
 	cout << BLUE << "[Diamond] -\tDiamondTrap Default Constructor" << RESET << endl;
@@ -52,6 +53,6 @@ DiamondTrap &DiamondTrap::operator=(DiamondTrap const &other) {
 
 // Member Functions
 void DiamondTrap::whoAmI() {
-	cout << GREEN << "[Diamond] Name: " << _name \
-	<< " ClapTrap Name: " << ClapTrap::_name << RESET << endl;
+	cout << GREEN << "[Diamond]\nName: " << _name \
+	<< "\nDiamond_Clap Name: " << ClapTrap::_name << RESET << endl;
 }

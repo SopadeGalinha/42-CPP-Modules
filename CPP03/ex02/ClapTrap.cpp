@@ -5,17 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhogonca <jhogonca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/09 16:16:16 by jhogonca          #+#    #+#             */
-/*   Updated: 2024/02/11 23:19:00 by jhogonca         ###   ########.fr       */
+/*   Created: 2024/02/13 12:13:35 by jhogonca          #+#    #+#             */
+/*   Updated: 2024/02/13 12:13:39 by jhogonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 //  ----- Constructors, Destructor, Operator Overload -----  //
+
 // Constructor
 ClapTrap::ClapTrap() {
-	cout << BLUE << "[Clap] - \tClapTrap Default Constructor" << RESET << endl;
+	cout << BLUE << "ClapTrap Default Constructor" << RESET << endl;
 	this->_name = "Unknown FragTrap";
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
@@ -24,7 +25,7 @@ ClapTrap::ClapTrap() {
 
 // Parameterized Constructor
 ClapTrap::ClapTrap(string name) {
-	cout << BLUE << "[Clap] - \tClapTrap Parameterized Constructor" << RESET << endl;
+	cout << BLUE << "ClapTrap Parameterized Constructor" << RESET << endl;
 	this->_name = name;
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
@@ -40,7 +41,7 @@ ClapTrap::ClapTrap(const ClapTrap &other) {
 // Destructor
 ClapTrap::~ClapTrap() {
 	cout << RED \
-	<< "[Clap] - \t" \
+	<< " [Clap] - " \
 	<< this->_name \
 	<< " Destroyed" << RESET << endl;
 }

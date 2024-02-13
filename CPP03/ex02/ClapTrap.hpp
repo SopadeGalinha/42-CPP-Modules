@@ -6,7 +6,7 @@
 /*   By: jhogonca <jhogonca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:05:58 by jhogonca          #+#    #+#             */
-/*   Updated: 2024/02/11 23:04:26 by jhogonca         ###   ########.fr       */
+/*   Updated: 2024/02/13 12:13:57 by jhogonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ class ClapTrap {
         void setName(string name);
         void setHitPoints(unsigned int hitPoints);
         void setEnergyPoints(unsigned int energyPoints);
+        void setAttackDamage(unsigned int attackDamage);
 };
 
 #endif

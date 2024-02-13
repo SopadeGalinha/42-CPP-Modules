@@ -6,7 +6,7 @@
 /*   By: jhogonca <jhogonca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 18:45:11 by jhogonca          #+#    #+#             */
-/*   Updated: 2024/02/11 22:42:45 by jhogonca         ###   ########.fr       */
+/*   Updated: 2024/02/13 12:14:59 by jhogonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "ClapTrap.hpp"
 
 // Class
-class ScavTrap : virtual public ClapTrap {
+class ScavTrap : public ClapTrap {
 	public:
 		// Constructor
 		ScavTrap();
