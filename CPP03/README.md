@@ -1,6 +1,7 @@
-# ClapTrap and ScavTrap
+# ClapTrap, FragTrap, and DiamondTrap Class Documentation
+
 ## Introduction
-This document provides documentation for the `ClapTrap` and `ScavTrap` classes, which represent robot characters in a C++ program. The `ScavTrap` class is derived from the `ClapTrap` class and introduces additional functionality specific to scavenger robots.
+This document provides documentation for the `ClapTrap`, `FragTrap`, and `DiamondTrap` classes, representing robot characters in a C++ program. The `DiamondTrap` class inherits from both `FragTrap` and `ScavTrap`, combining attributes and functionalities from both parent classes.
 
 ## ClapTrap Class (claptrap.hpp)
 The `ClapTrap` class represents a basic robot character with attributes such as name, hit points, energy points, and attack damage. It provides functionality for actions like attacking, taking damage, and being repaired.
@@ -25,35 +26,49 @@ The `ClapTrap` class represents a basic robot character with attributes such as 
 - `beRepaired(unsigned int amount)`: Increases hit points by a specified amount.
 - Getters and setters for accessing and modifying private member variables.
 
-## ScavTrap Class (scavtrap.hpp)
-The `ScavTrap` class is derived from the `ClapTrap` class and introduces additional functionality specific to scavenger robots.
+## FragTrap Class (fragtrap.hpp)
+The `FragTrap` class represents a robot character specialized in combat, inheriting from the `ClapTrap` class. It introduces additional functionality such as high-fiving.
 
 ### Constructors
-- `ScavTrap()`: Default constructor initializing ScavTrap attributes.
-- `ScavTrap(string name)`: Parameterized constructor initializing with a specified name.
-- `ScavTrap(const ScavTrap &other)`: Copy constructor for copying ScavTrap objects.
+- `FragTrap()`: Default constructor initializing FragTrap attributes.
+- `FragTrap(string name)`: Parameterized constructor initializing with a specified name.
+- `FragTrap(const FragTrap &other)`: Copy constructor for copying FragTrap objects.
 
 ### Destructor
-- `~ScavTrap()`: Destructor to destroy ScavTrap objects.
+- `~FragTrap()`: Destructor to destroy FragTrap objects.
 
 ### Member Functions
-- `guardGate()`: Displays a message indicating that the ScavTrap is in Gatekeeper mode.
-- `attack(const string &target)`: Performs an attack action on a target, overriding the ClapTrap's attack function.
+- `highFivesGuys()`: Requests a high five.
+
+## DiamondTrap Class (diamondtrap.hpp)
+The `DiamondTrap` class represents a robot combining features of both `FragTrap` and `ScavTrap`, inheriting from both classes. It introduces additional functionality such as displaying its own name and its ClapTrap name.
+
+### Constructors
+- `DiamondTrap()`: Default constructor initializing DiamondTrap attributes.
+- `DiamondTrap(string name)`: Parameterized constructor initializing with a specified name.
+- `DiamondTrap(const DiamondTrap &other)`: Copy constructor for copying DiamondTrap objects.
+
+### Destructor
+- `~DiamondTrap()`: Destructor to destroy DiamondTrap objects.
+
+### Member Functions
+- `whoAmI()`: Displays both its own name and its ClapTrap name.
 
 ## Usage
-To use these classes, include the respective header files in your C++ program. You can create instances of ClapTrap and ScavTrap objects using the available constructors and call their member functions to perform actions.
+To use these classes, include the respective header files in your C++ program. You can create instances of ClapTrap, FragTrap, and DiamondTrap objects using the available constructors and call their member functions to perform actions.
 
 Example:
 ```cpp
-#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main() {
-    ScavTrap scav("Scavenger");
-    scav.guardGate();
-    scav.attack("Enemy");
+    DiamondTrap diamond("Sparky");
+    diamond.whoAmI();
+    diamond.attack("Enemy");
+    diamond.highFivesGuys();
     return 0;
 }
 ```
 
 ## Conclusion
-The `ClapTrap` and `ScavTrap` classes provide a flexible framework for implementing different types of robot characters in a C++ program. By inheriting functionality from ClapTrap and introducing additional features, such as guarding gates, ScavTrap demonstrates the power of object-oriented programming in creating diverse and modular code.
+The `DiamondTrap` class demonstrates multiple inheritance in C++, inheriting attributes and functionalities from both `FragTrap` and `ScavTrap` classes. By combining features from its parent classes, DiamondTrap showcases the flexibility and power of object-oriented programming in creating complex and versatile robot characters.
