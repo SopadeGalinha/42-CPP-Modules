@@ -3,6 +3,7 @@
 int main()
 {
 	/* Uncommenting the following line will result in a compilation error. */
+	
 	// Animal* animal = new Animal();
 
 	cout << endl

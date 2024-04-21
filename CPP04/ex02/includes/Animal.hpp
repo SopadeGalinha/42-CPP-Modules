@@ -97,7 +97,6 @@ class WrongAnimal
 {
 protected:
 	string _type;
-
 public:
 	// Constructors
 	WrongAnimal();

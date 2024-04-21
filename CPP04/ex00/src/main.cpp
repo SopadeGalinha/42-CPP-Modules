@@ -33,9 +33,20 @@ void printAnimalDetails(const Animal *animal)
     cout << "Type: " << type << endl;
 }
 
+void printWrongAnimalDetails(const WrongAnimal *animal) {
+    std::string type = animal->getType();
+    if (type.empty())
+        type = "...";
+    cout << "Type: " << type << endl;
+}
+
 // Função para testar makeSound() de um animal
 void testMakeSound(const Animal *animal)
 {
+    animal->makeSound();
+}
+
+void testMakeWrongSound(const WrongAnimal *animal) {
     animal->makeSound();
 }
 
@@ -65,16 +76,24 @@ void test()
     const Animal *meta = new Animal();     // Objeto base
     const Animal *dog = new Dog();         // Objeto derivado Dog
     const Animal *cat = new Cat();         // Objeto derivado Cat
+    const WrongCat *wrongCat = new WrongCat(); // Objeto derivado WrongCat
     const Animal *cow = new Animal("Cow"); // Objeto base com tipo específico
 
     // Testando os tipos dos objetos
     printHeader("Testing object types");
+
     cout << "Dog : ";
     printAnimalDetails(dog);
+    
     cout << "Cat : ";
     printAnimalDetails(cat);
+    
     cout << "Cow : ";
     printAnimalDetails(cow);
+    
+    cout << "WCat: ";
+    printWrongAnimalDetails(wrongCat);
+    
     cout << "Meta: ";
     printAnimalDetails(meta);
 
@@ -86,6 +105,8 @@ void test()
     testMakeSound(dog); // Deve imprimir o som do cachorro
     cout << "Som de Cow : ";
     testMakeSound(cow); // Pode imprimir o som padrão de `Animal`
+    cout << "Som de WCat: ";
+    testMakeWrongSound(wrongCat); // Deve imprimir o som do gato errado
     cout << "Som de Meta: ";
     testMakeSound(meta); // Deve imprimir o som padrão de `Animal`
 
@@ -95,6 +116,7 @@ void test()
     delete dog;
     delete cat;
     delete cow;
+    delete wrongCat;
 }
 
 int main(void)

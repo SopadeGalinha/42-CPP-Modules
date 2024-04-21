@@ -92,7 +92,22 @@ public:
 
 	// Member functions
 	string			getType() const;
-	void			makeSound() const;
+	virtual void	makeSound(void) const;
+};
+
+class WrongCat : public WrongAnimal
+{
+public:
+	// Constructors
+	WrongCat();
+	WrongCat(const WrongCat &other);
+	virtual ~WrongCat();
+
+	// Operator overloads
+	WrongCat	&operator=(const WrongCat &other);
+
+	// Member functions
+		virtual void	makeSound(void) const;
 };
 
 #endif
