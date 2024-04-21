@@ -10,32 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* #ifndef ICHARACTER_HPP
+#ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 
 // Libraries
 # include <iostream>
 # include <string>
 # include <sstream>
-#include "Character.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
-#include "ICharacter.hpp"
-#include "IMateriaSource.hpp"
-#include "MateriaSource.hpp"
 
-// Classes
-class AMateria;
-class Character;
-class Cure;
-class Ice;
-class ICharacter;
-class IMateriaSource;
-class MateriaSource;
- */
-// ICharacter class
 
-// -----> Description <-----
+/* -----> Description <----- */
 /* The ICharacter class is an interface class that will be inherited by the
 Character class. It has a virtual destructor and three pure virtual functions.
 The getName function returns the name of the character. The equip function
@@ -45,7 +29,9 @@ the materia in the slot of the array corresponding to the index received as
 parameter. The use function receives an integer as parameter and uses the materia
 in the slot of the array corresponding to the index received as parameter. */
 
-/* class ICharacter
+// ICharacter class
+class AMateria;
+class ICharacter
 {
 public:
 	// Constructors and destructor
@@ -56,6 +42,4 @@ public:
 	virtual void unequip(int idx) = 0;
 	virtual void use(int idx, ICharacter& target) = 0;
 };
-
 #endif
- */

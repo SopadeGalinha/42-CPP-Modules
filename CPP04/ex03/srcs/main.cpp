@@ -10,38 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/AMateria.hpp"
+# include "Character.hpp"
 
 int main(void)
 {
-	cout << "-------- Create Materia Source --------" << endl;
+	cout << "\n-------- Create Materia Source --------" << endl;
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 
-	cout << "-------- Create Character --------" << endl;
+	cout << "\n-------- Create Character --------" << endl;
 	ICharacter* me = new Character("me");
 	
-	cout << "-------- Assign Materia --------" << endl;
+	cout << "\n-------- Assign Materia --------" << endl;
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
 
-	cout << "-------- Create Character Bob --------" << endl;
+	cout << "\n-------- Create Character Bob --------" << endl;
 	ICharacter* bob = new Character("bob");
 
-	cout << "-------- Use Materia on Bob --------" << endl;
+	cout << "\n-------- Use Materia on Bob --------" << endl;
 	me->use(0, *bob);
 	me->use(1, *bob);
 
-	cout << "-------- Delete characters --------" << endl;
-	cout << "-------- Bob has no materia --------" << endl;
+	cout << "\n-------- Delete characters --------" << endl;
+	cout << "\n-------- Bob has no materia --------" << endl;
 	delete bob;
-	cout << "-------- I have two materia --------" << endl;
+	cout << "\n-------- I have two materia --------" << endl;
 	delete me;
-	cout << "-------- Delete Materia Source --------" << endl;
+	cout << "\n-------- Delete Materia Source --------" << endl;
 	delete src;
 
 	return (0);

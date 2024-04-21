@@ -33,47 +33,47 @@ protected:
 public:
 	
 	// Constructors
-	Animal();
+	Animal(void);
 	Animal(string animal_type);
 	Animal(const Animal& other);
-	virtual ~Animal();
+	virtual ~Animal(void);
 
 	// Operator overloads
 	Animal	&operator=(const Animal& other);
 
 	// Member functions
-	string			getType() const;
-	virtual void	makeSound() const;
+	string			getType(void) const;
+	virtual void	makeSound(void) const;
 };
 
 // Cat Class
 class Cat : public Animal {
 public:
 	// Constructors
-	Cat();
+	Cat(void);
 	Cat(const Cat &other);
-	virtual ~Cat();
+	virtual ~Cat(void);
 
 	// Operator overloads
 	Cat	&operator=(const Cat &other);
 
 	// Member functions
-	virtual void	makeSound() const;
+	virtual void	makeSound(void) const;
 };
 
 // Dog Class
 class Dog : public Animal {
 public:
 	// Constructors
-	Dog();
+	Dog(void);
 	Dog(const Dog &other);
-	virtual ~Dog();
+	virtual ~Dog(void);
 
 	// Operator overloads
 	Dog	&operator=(const Dog &other);
 
 	// Member functions
-	virtual void	makeSound() const;
+	virtual void	makeSound(void) const;
 };
 
 // WrongAnimal Class

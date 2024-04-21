@@ -17,6 +17,7 @@ using std::string;
 using std::stringstream;
 
 class Brain;
+
 // Animal Class
 
 /*

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
  
-#include "../includes/AMateria.hpp"
+#include "../includes/MateriaSource.hpp"
 
 /* -----> Methods <----- */
 

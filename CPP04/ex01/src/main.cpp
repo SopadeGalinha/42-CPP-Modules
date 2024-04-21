@@ -12,38 +12,87 @@
 
 #include "../includes/Animal.hpp"
 
-int	main(void) {
-	cout << endl << YELLOW << "-------- Create Dog --------" << RESET << endl << endl;
-	const Animal* j = new Dog();
+void test()
+{
+	cout << endl
+		 << YELLOW << "-------- My Own Test -------" << RESET << endl
+		 << endl;
+	const int arraySize = 6;
 
-	cout << endl << YELLOW << "-------- Create Cat --------" << RESET << endl << endl;
-	const Animal* i = new Cat();
+	// Create Dog and Cat objects
+	cout << endl
+		 << YELLOW << "-------- Create Dog --------" << RESET << endl
+		 << endl;
+	const Animal *dog = new Dog();
+	cout << endl
+		 << YELLOW << "-------- Create Cat --------" << RESET << endl
+		 << endl;
+	const Animal *cat = new Cat();
 
-	cout << endl << YELLOW << "-------- Make Sounds --------" << RESET << endl << endl;
-	j->makeSound();
-	i->makeSound();
+	// Get ideas from Dog and Cat objects
+	cout << endl
+		 << YELLOW << "-------- Get ideas ----------" << RESET << endl
+		 << endl;
+	cout << GREEN << "Dog's: " << ((Dog *)dog)->getBrain()->getIdeas()[5] << RESET << endl;
+	cout << GREEN << "Cat's: " << ((Cat *)cat)->getBrain()->getIdeas()[6] << RESET << endl;
 
-    cout << endl << YELLOW << "-------- Get ideas ----------" << RESET << endl << endl;
-    
-    cout << GREEN << "Dog's: " << ((Dog*)j)->getBrain()->getIdeas()[0] << RESET << endl;
-    cout << GREEN << "Cat's: " << ((Cat*)i)->getBrain()->getIdeas()[1] << RESET << endl;
+	// Delete the Dog and Cat objects
+	cout << endl
+		 << YELLOW << "-------- Delete Dog --------" << RESET << endl
+		 << endl;
+	delete dog;
+	cout << endl
+		 << YELLOW << "-------- Delete Cat --------" << RESET << endl
+		 << endl;
+	delete cat;
 
-    cout << GREEN << "Dog's: " << ((Dog*)j)->getBrain()->getIdeas()[2] << RESET << endl;
-    cout << GREEN << "Cat's: " << ((Cat*)i)->getBrain()->getIdeas()[3] << RESET << endl;
+	cout << endl
+		 << YELLOW << "--- Fill an array of Animals --"
+		 << RESET << endl
+		 << endl;
 
-	cout << endl << YELLOW << "-------- Create copies --------" << RESET << endl << endl;
-	Animal* copy_dog = new Dog(*((Dog*)j));
-	Animal* copy_cat = new Cat(*((Cat*)i));
+	Animal *animals[arraySize];
 
-	cout << endl << YELLOW << "-------- Delete Copies --------" << RESET << endl << endl;
-	delete copy_dog;
-	delete copy_cat;
-	
-	cout << endl << YELLOW << "-------- Delete Dog --------" << RESET << endl << endl;
-	delete j; //should not create a leak
-	
-	cout << endl << YELLOW << "-------- Delete Cat --------" << RESET << endl << endl;
-	delete i; //should not create a leak
-	
-	return (0);
+	for (int i = 0; i < arraySize; ++i)
+	{
+		if (i < arraySize / 2)
+			animals[i] = new Dog(); // Create Dog objects in the first half of the array
+		else
+			animals[i] = new Cat(); // Create Cat objects in the second half of the array
+	}
+
+	// Make all Animal objects in the array make a sound
+	cout << endl
+		 << YELLOW << "-------- Make sound --------" << RESET << endl
+		 << endl;
+	for (int i = 0; i < arraySize; ++i)
+	{
+		animals[i]->makeSound();
+	}
+
+	// Delete all Animal objects in the array
+	cout << endl
+		 << YELLOW << "----- Deleting Animals ------" << RESET << endl;
+	for (int i = 0; i < arraySize; ++i)
+	{
+		delete animals[i];
+	}
+}
+
+void subjectTest()
+{
+	cout << endl
+		 << YELLOW << "-------- Subject Test ------" << RESET << endl
+		 << endl;
+	const Animal *j = new Dog();
+	const Animal *i = new Cat();
+	delete j; // should not create a leak
+	delete i; // should not create a leak
+}
+
+int main()
+{
+	subjectTest();
+	test();
+	return 0;
 }

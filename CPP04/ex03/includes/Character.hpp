@@ -10,28 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* #pragma once
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
 // Libraries
-# include <iostream>
-# include <string>
-# include <sstream>
-#include "Character.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
-#include "ICharacter.hpp"
-#include "IMateriaSource.hpp"
-#include "MateriaSource.hpp"
+# include "AMateria.hpp"
+# include "Ice.hpp"
+# include "Cure.hpp"
+# include "ICharacter.hpp"
+# include "IMateriaSource.hpp"
+# include "MateriaSource.hpp"
 
-// Classes
-class AMateria;
-class Character;
-class Cure;
-class Ice;
-class ICharacter;
-class IMateriaSource;
-class MateriaSource;
- */
 // Character class
 
 // -----> Description <-----
@@ -48,25 +37,26 @@ function called use that will be implemented by the Character class. The use
 function will receive an integer as parameter and will use the materia in the
 slot of the array corresponding to the index received as parameter. */
 
-/* class Character : public ICharacter
+class Character : public ICharacter
 {
 private:
-	string		_name;
-	AMateria	*_inventory[4];
+	std::string _name;
+	AMateria *_inventory[4];
 public:
 	// Constructors and destructor
 	Character(void);
-	Character(string const &name);
+	Character(std::string const &name);
 	Character(const Character &source);
 	virtual ~Character(void);
 
 	// Operator overloads
-	Character		&operator=(const Character &other);
+	Character	&operator=(const Character &other);
 
 	// Member functions
-	string const	&getName(void) const;
-	void				equip(AMateria* m);
-	void				unequip(int idx);
-	void				use(int idx, ICharacter& target);
+	std::string const &getName(void) const;
+	void equip(AMateria* m);
+	void unequip(int idx);
+	void use(int idx, ICharacter& target);
 };
- */
+
+#endif

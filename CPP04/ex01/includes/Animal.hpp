@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jhogonca <jhogonca@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/21 19:59:45 by jhogonca          #+#    #+#             */
+/*   Updated: 2024/04/21 19:59:45 by jhogonca         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
 
@@ -17,6 +29,7 @@ using std::string;
 using std::stringstream;
 
 class Brain;
+
 // Animal Class
 class Animal
 {
@@ -25,17 +38,17 @@ protected:
 
 public:
 	// Constructors
-	Animal();
+	Animal(void);
 	Animal(string animal_type);
 	Animal(const Animal &other);
-	virtual ~Animal();
+	virtual ~Animal(void);
 
 	// Operator overloads
 	Animal &operator=(const Animal &other);
 
 	// Member functions
-	string getType() const;
-	virtual void makeSound() const;
+	string getType(void) const;
+	virtual void makeSound(void) const;
 };
 
 // Cat Class
@@ -45,15 +58,15 @@ private:
 	Brain *_brain;
 public:
 	// Constructors
-	Cat();
+	Cat(void);
 	Cat(const Cat &other);
-	virtual ~Cat();
+	virtual ~Cat(void);
 
 	// Operator overloads
 	Cat &operator=(const Cat &other);
 
 	// Member functions
-	virtual void makeSound() const;
+	virtual void makeSound(void) const;
 	Brain *getBrain(void) const;
 };
 
@@ -65,15 +78,15 @@ private:
 
 public:
 	// Constructors
-	Dog();
+	Dog(void);
 	Dog(const Dog &other);
-	virtual ~Dog();
+	virtual ~Dog(void);
 
 	// Operator overloads
 	Dog &operator=(const Dog &other);
 
 	// Member functions
-	virtual void makeSound() const;
+	virtual void makeSound(void) const;
 	Brain *getBrain(void) const;
 };
 
@@ -85,17 +98,17 @@ protected:
 
 public:
 	// Constructors
-	WrongAnimal();
+	WrongAnimal(void);
 	WrongAnimal(string animal_type);
 	WrongAnimal(const WrongAnimal &other);
-	virtual ~WrongAnimal();
+	virtual ~WrongAnimal(void);
 
 	// Operator overloads
 	WrongAnimal &operator=(const WrongAnimal &other);
 
 	// Member functions
-	string getType() const;
-	void makeSound() const;
+	string getType(void) const;
+	void makeSound(void) const;
 };
 
 // Brain Class
@@ -108,7 +121,7 @@ public:
 	// Constructors
 	Brain(void);
 	Brain(const Brain &source);
-	~Brain();
+	~Brain(void);
 
 	// Operator overloads
 	Brain &operator=(const Brain &other);

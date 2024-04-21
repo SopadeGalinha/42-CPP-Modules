@@ -10,29 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* #pragma once
+#ifndef CURE_HPP
+# define CURE_HPP
 
 // Libraries
-# include <iostream>
-# include <string>
-# include <sstream>
-#include "Character.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
-#include "ICharacter.hpp"
-#include "IMateriaSource.hpp"
-#include "MateriaSource.hpp"
-
-// Classes
-class AMateria;
-class Character;
-class Cure;
-class Ice;
-class ICharacter;
-class IMateriaSource;
-class MateriaSource;
- */
-// Cure class
+# include "AMateria.hpp"
+# include "ICharacter.hpp"
 
 // -----> Description <-----
 /* The Cure class is a concrete class that inherits from the AMateria class.
@@ -42,7 +25,8 @@ assignment operator. It has a clone function that returns a new instance of
 the Cure class. It has a use function that prints a message to the standard
 output. */
 
-/* class Cure : public AMateria
+// Cure class
+class Cure : public AMateria
 {
 public:
     // Constructors and destructor
@@ -57,4 +41,5 @@ public:
     AMateria *clone() const;
     void use(ICharacter& target);
 };
- */
+
+#endif

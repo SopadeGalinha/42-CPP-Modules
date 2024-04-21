@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jhogonca <jhogonca@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/21 20:06:21 by jhogonca          #+#    #+#             */
+/*   Updated: 2024/04/21 20:06:21 by jhogonca         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/Animal.hpp"
 
 // Constructors and destructor
@@ -10,11 +22,13 @@ Brain::Brain(void) {
 	}
 }
 
+// Copy constructor
 Brain::Brain(const Brain &source) {
 	cout << BLUE << "[Brain] - \tCopy Constructor" << RESET << endl;
 	*this = source;
 }
 
+// Destructor
 Brain::~Brain(void) {
 	cout << RED << "[Brain] - \tDestroyed" << RESET << endl;
 }

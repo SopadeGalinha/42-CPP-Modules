@@ -10,44 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* #pragma once
+#ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
 
 // Libraries
-# include <iostream>
-# include <string>
-# include <sstream>
-#include "Character.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
-#include "ICharacter.hpp"
-#include "IMateriaSource.hpp"
-#include "MateriaSource.hpp"
+# include "AMateria.hpp"
 
-// Classes
-class AMateria;
-class Character;
-class Cure;
-class Ice;
-class ICharacter;
-class IMateriaSource;
-class MateriaSource;
- */
-// IMateriaSource class
-
-// -----> Description <-----
+/* -----> Description <----- */
 /* The IMateriaSource class is an interface class that will be inherited by the
 MateriaSource class. It has a virtual destructor and two pure virtual functions.
 The learnMateria function receives an AMateria pointer as parameter and stores it
 in the source. The createMateria function receives a string as parameter and returns
 a new instance of the AMateria class. */
 
-/* class IMateriaSource
+// IMateriaSource class
+class IMateriaSource
 {
 public:
 	// Constructors and destructor
 	virtual ~IMateriaSource(void) {};
 	// Member functions
-	virtual void learnMateria(AMateria* m) = 0;
-	virtual AMateria* createMateria(std::string const &type) = 0;
+	virtual void learnMateria(AMateria*) = 0;
+	virtual AMateria* createMateria(std::string const & type) = 0;
 };
- */
+
+#endif

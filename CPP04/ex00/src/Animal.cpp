@@ -53,7 +53,7 @@ string	Animal::getType(void) const {
 
 // Make Sound
 void	Animal::makeSound(void) const {
-	cout << GREEN << "[Animal] - \t";
+	cout << GREEN << "[Animal] - ";
 	if (this->_type != "")
 		cout << this->_type << " ";
 	cout << "says: \"...\"" << RESET << endl;
