@@ -20,14 +20,35 @@
 
 
 /* -----> Description <----- */
-/* The ICharacter class is an interface class that will be inherited by the
-Character class. It has a virtual destructor and three pure virtual functions.
-The getName function returns the name of the character. The equip function
-receives an AMateria pointer as parameter and equips it in the first empty slot
-of the array. The unequip function receives an integer as parameter and unequips
-the materia in the slot of the array corresponding to the index received as
-parameter. The use function receives an integer as parameter and uses the materia
-in the slot of the array corresponding to the index received as parameter. */
+/*
+The ICharacter interface represents a character in the game or simulation.
+It provides a contract that any class representing a character must adhere to.
+This contract includes a set of methods that a character must be able to perform.
+
+The interface includes the following methods:
+
+- `getName`: This method is expected to return the name of the character.
+  It is a const method, meaning it does not modify the state of the object it is called on.
+
+- `equip`: This method takes a pointer to an AMateria 
+	object and is expected to equip the character with this object.
+	The exact behavior of this method is left up to the implementing class.
+
+- `unequip`: This method takes an integer index and is expected to unequip the 
+  AMateria object at that index in the character's inventory.
+  Again, the exact behavior is left up to the implementing class.
+
+- `use`: This method takes an integer index and a reference to another ICharacter object.
+  It is expected to use the AMateria object at the given index on the given character.
+
+The interface also includes a virtual destructor.
+This is necessary to ensure that the correct destructor is called when
+an object of a class that implements this interface is deleted through
+a pointer to the interface. Without a virtual destructor, 
+only the ICharacter destructor would be called,
+potentially leading to resource leaks.
+*/
+
 
 // ICharacter class
 class AMateria;

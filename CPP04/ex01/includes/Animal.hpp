@@ -98,17 +98,29 @@ protected:
 
 public:
 	// Constructors
-	WrongAnimal(void);
+	WrongAnimal();
 	WrongAnimal(string animal_type);
 	WrongAnimal(const WrongAnimal &other);
-	virtual ~WrongAnimal(void);
+	virtual ~WrongAnimal();
 
 	// Operator overloads
 	WrongAnimal &operator=(const WrongAnimal &other);
 
 	// Member functions
-	string getType(void) const;
+	string getType() const;
 	void makeSound(void) const;
+};
+
+class WrongCat : public WrongAnimal
+{
+public:
+	// Constructors
+	WrongCat();
+	WrongCat(const WrongCat &other);
+	virtual ~WrongCat();
+
+	// Operator overloads
+	WrongCat &operator=(const WrongCat &other);
 };
 
 // Brain Class

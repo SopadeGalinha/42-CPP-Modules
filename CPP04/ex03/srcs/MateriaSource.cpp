@@ -30,6 +30,11 @@ MateriaSource::MateriaSource(const MateriaSource &source) {
 }
 
 // Destructor
+
+/* The destructor is a special member function that is 
+* called when the lifetime of an object is over.
+* The purpose of the destructor is to free the resources that 
+* the object may have acquired during its lifetime. */
 MateriaSource::~MateriaSource(void) {
 	for (int i = 0; i < 4; i++)
 		if (_inventory[i])
@@ -39,6 +44,11 @@ MateriaSource::~MateriaSource(void) {
 }
 
 // Assignment operator
+
+/* The assignment operator is invoked when one object, which has already been initialized, 
+*  is assigned the state of another existing object. 
+*  This operator performs a deep copy of the source object's state, 
+*  ensuring that each object maintains its own independent copy of the data. */
 MateriaSource	&MateriaSource::operator=(const MateriaSource &other) {
 	if (this == &other)
 		return (*this);
@@ -51,6 +61,9 @@ MateriaSource	&MateriaSource::operator=(const MateriaSource &other) {
 }
 
 // Member functions
+
+/*The learnMateria function will store the materia 
+* in the first available slot in the inventory.*/
 void MateriaSource::learnMateria(AMateria* materia) {
 	for (int i = 0; i < 4; i++) {
 		if (!_inventory[i]) {
@@ -61,6 +74,8 @@ void MateriaSource::learnMateria(AMateria* materia) {
 	return ;
 }
 
+/* The createMateria function will return a new instance of the materia 
+* type passed as an argument if it is stored in the inventory.*/
 AMateria* MateriaSource::createMateria(std::string const &type) {
 	for (int i = 0; i < 4; i++) {
 		if (_inventory[i] && _inventory[i]->getType() == type)

@@ -97,6 +97,7 @@ class WrongAnimal
 {
 protected:
 	string _type;
+
 public:
 	// Constructors
 	WrongAnimal();
@@ -109,7 +110,19 @@ public:
 
 	// Member functions
 	string getType() const;
-	void makeSound() const;
+	void makeSound(void) const;
+};
+
+class WrongCat : public WrongAnimal
+{
+public:
+	// Constructors
+	WrongCat();
+	WrongCat(const WrongCat &other);
+	virtual ~WrongCat();
+
+	// Operator overloads
+	WrongCat &operator=(const WrongCat &other);
 };
 
 // Brain Class

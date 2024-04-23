@@ -20,7 +20,7 @@ int main(void)
 	src->learnMateria(new Cure());
 
 	cout << "\n-------- Create Character --------" << endl;
-	ICharacter* me = new Character("me");
+	ICharacter* me = new Character("ME");
 	
 	cout << "\n-------- Assign Materia --------" << endl;
 	AMateria* tmp;

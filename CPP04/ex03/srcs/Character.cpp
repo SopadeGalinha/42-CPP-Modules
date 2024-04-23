@@ -12,7 +12,14 @@
 
 #include "../includes/Character.hpp"
 
-/* -----> Methods <----- */
+/* Subject specificatons: 
+	- The Character possesses an inventory of 4 slots to equip Materia.
+	- The inventory is empty at construction.
+	- They equip the Materias in the first empty slot they find. (0 to 3)
+	- In case they try to add a Materia to a full inventory, or 
+		use/unequip an unexisting Materia, don’t do anything.
+	- The unequip() member function must NOT delete the Materia!
+*/
 
 // Default constructor
 Character::Character(void) {
@@ -64,10 +71,13 @@ Character	&Character::operator=(const Character &other) {
 }
 
 // Member functions
+
 std::string const	&Character::getName(void) const {
 	return (this->_name);
 }
 
+/* The equip function will store the materia
+* in the first available slot in the inventory. */
 void Character::equip(AMateria* m) {
 	for (int i = 0; i < 4; i++) {
 		if (!_inventory[i]) {
@@ -78,6 +88,7 @@ void Character::equip(AMateria* m) {
 	return ;
 }
 
+/* The unequip function will remove the materia from the inventory.*/
 void Character::unequip(int idx) {
 	if (idx < 0 || idx > 3 || !_inventory[idx])
 		return ;
@@ -85,6 +96,8 @@ void Character::unequip(int idx) {
 	return ;
 }
 
+/* The use function will use the materia 
+* in the inventory on the target character. */
 void Character::use(int idx, ICharacter& target) {
 	if (idx < 0 || idx > 3 || !_inventory[idx])
 		return ;
