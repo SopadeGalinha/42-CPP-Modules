@@ -19,10 +19,9 @@
 
 /* -----> Description <----- */
 /* The Ice class is a concrete class that inherits from the AMateria class.
-It has a constructor that initializes the type of the materia to "ice". It
-has a copy constructor and a destructor. It has an operator overload for the
-assignment operator. It has a clone function that returns a new instance of
-the Ice class. It has a use function that prints a message to the standard
+It has a constructor that initializes the type of the materia to "ice". 
+A clone function that returns a new instance of the Ice class. 
+It has a use function that prints a message to the standard
 output. */
 
 // Ice class

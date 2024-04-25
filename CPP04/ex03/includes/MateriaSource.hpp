@@ -17,12 +17,11 @@
 # include "IMateriaSource.hpp"
 
 /* -----> Description <----- */
-/* The MateriaSource class is a concrete class that inherits from the IMateriaSource
-interface class. It has a constructor that initializes the source with an empty array
-of 4 AMateria pointers. It has a copy constructor and a destructor. It has an operator
-overload for the assignment operator. It has a learnMateria function that receives an
-AMateria pointer as parameter and stores it in the source. It has a createMateria function
-that receives a string as parameter and returns a new instance of the AMateria class. */
+/* The MateriaSource class is a concrete class that inherits from the 
+IMateriaSource interface class. It has a learnMateria function that receives an
+AMateria pointer as parameter and stores it in the source. It has
+a createMateria function that receives a string as parameter and returns
+a new instance of the AMateria class. */
 
 // MateriaSource class
 class MateriaSource : public IMateriaSource

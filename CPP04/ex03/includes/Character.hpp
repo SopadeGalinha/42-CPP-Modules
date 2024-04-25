@@ -25,8 +25,7 @@
 
 // -----> Description <-----
 /* The Character class is a concrete class that inherits from the ICharacter
-interface class. It has a name and a pointer to an array of 4 AMateria pointers.
-It has a virtual destructor and a pure virtual function called equip that will be
+interface class. It has a pure virtual function called equip that will be
 implemented by the Character class. The equip function will receive an AMateria
 pointer as parameter and will equip it in the first empty slot of the array. The
 Character class also has a pure virtual function called unequip that will be

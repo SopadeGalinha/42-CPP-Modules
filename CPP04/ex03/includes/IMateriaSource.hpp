@@ -19,9 +19,9 @@
 /* -----> Description <----- */
 /* The IMateriaSource class is an interface class that will be inherited by the
 MateriaSource class. It has a virtual destructor and two pure virtual functions.
-The learnMateria function receives an AMateria pointer as parameter and stores it
-in the source. The createMateria function receives a string as parameter and returns
-a new instance of the AMateria class. */
+The learnMateria function receives an AMateria pointer as parameter and stores
+it in the source. The createMateria function receives a string as parameter 
+and returns a new instance of the AMateria class. */
 
 // IMateriaSource class
 class IMateriaSource
