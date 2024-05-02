@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/AForm.hpp"
 #include "../includes/Bureaucrat.hpp"
 
 // Default constructor

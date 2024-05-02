@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Bureaucrat.hpp"
 #include "../includes/AForm.hpp"
+#include "../includes/Bureaucrat.hpp"
 
 // Default constructor
 AForm::AForm() : _name("Default"), _signed(false), _gradeToSign(150), _gradeToExecute(150)
@@ -90,6 +90,10 @@ const char *AForm::FormNotSignedException::what() const throw()
 	return (RED "Form is not signed" RESET);
 }
 
+const char *AForm::FileNotOpenedException::what() const throw()
+{
+	return (RED "File not opened" RESET);
+}
 // Stream operator overload
 std::ostream &operator<<(std::ostream &os, AForm const &AForm)
 {

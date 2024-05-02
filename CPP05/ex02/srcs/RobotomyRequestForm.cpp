@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/AForm.hpp"
 #include "../includes/RobotomyRequestForm.hpp"
-#include <cstdlib>
 
 // Default constructor
 RobotomyRequestForm::RobotomyRequestForm() : AForm("Default", 72, 45), _target("Default")
@@ -50,11 +50,14 @@ std::string const &RobotomyRequestForm::getTarget() const
 // Member functions
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-	AForm::execute(executor);
+	if (!getSigned())
+		throw FormNotSignedException();
+	if (executor.getGrade() > getGradeToExecute())
+		throw GradeTooLowException();
+	std::srand(static_cast<unsigned int>(std::time(NULL)));
 	std::cout << "* drilling noises *" << std::endl;
-	if (rand() % 2)
-		std::cout << _target << " has been robotomized successfully" << std::endl;
+	if (std::rand() % 2)
+		std::cout << _target << " has been robotomized successfully." << std::endl;
 	else
-		std::cout << _target << " robotomization failed" << std::endl;
-	return;
+		std::cout << _target << " robotomization failed." << std::endl;
 }

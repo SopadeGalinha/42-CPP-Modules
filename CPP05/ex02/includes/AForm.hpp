@@ -65,6 +65,12 @@ class AForm
 			public:
 				virtual const char *what() const throw();
 		};
+
+		class FileNotOpenedException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
 };
 
 // Operator overloads

@@ -48,39 +48,39 @@ std::string const &ShrubberyCreationForm::getTarget() const
 }
 
 // Member functions
-void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
-    // Call the base class execute method
-    AForm::execute(executor);
-    
-    // Create the filename
-    std::string filename = _target + "_shrubbery";
-    
-    // Create an ofstream and open the file using the filename.c_str()
-    std::ofstream file;
-    file.open(filename.c_str());
-    
-    // Check if the file opened successfully
-    if (!file.is_open()) {
-        std::cerr << "Error: could not open file" << std::endl;
-        return;
-    }
-    
-    // Write ASCII trees inside the file
-    file << "      /\\      " << std::endl;
-    file << "     /\\*\\     " << std::endl;
-    file << "    /\\O\\*\\    " << std::endl;
-    file << "   /*/\\/\\/\\   " << std::endl;
-    file << "  /\\O\\/\\*\\/\\  " << std::endl;
-    file << " /\\*\\/\\*\\/\\/\\ " << std::endl;
-    file << "/\\O\\/\\/*/\\/O/\\\\" << std::endl;
-    file << "      ||      " << std::endl;
-    file << "      ||      " << std::endl;
-    file << "      ||      " << std::endl;
-    file << std::endl;
-    
-    // Close the file
-    file.close();
-    
-    // Print success message
-    std::cout << "Shrubbery has been created successfully" << std::endl;
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+{
+	// Check if the form is signed
+	if (!this->getSigned())
+		throw AForm::FormNotSignedException();
+	// Check if the executor has the right grade
+	if (executor.getGrade() > this->getGradeToExecute())
+		throw AForm::GradeTooLowException();
+
+	// Create the file
+	std::ofstream file;
+	std::string filename = _target + "_shrubbery";
+	file.open(filename.c_str());
+
+	if (!file.is_open())
+		throw AForm::FileNotOpenedException();
+	file << "      /\\      " << std::endl;
+	file << "     /\\*\\     " << std::endl;
+	file << "    /\\O\\*\\    " << std::endl;
+	file << "   /*/\\/\\/\\   " << std::endl;
+	file << "  /\\O\\/\\*\\/\\  " << std::endl;
+	file << " /\\*\\/\\*\\/\\/\\ " << std::endl;
+	file << "/\\O\\/\\/*/\\/O/\\" << std::endl;
+	file << "      ||      " << std::endl;
+	file << "      ||      " << std::endl;
+	file << "      ||      " << std::endl;
+	file << std::endl;
+
+	file.close();
+
+	cout << GREEN
+		 << "ShrubberyCreationForm has been executed by "
+		 << executor.getName()
+		 << RESET
+		 << std::endl;
 }

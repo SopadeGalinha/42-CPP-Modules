@@ -17,8 +17,8 @@
 # include <iostream>
 # include <string>
 # include <exception>
-# include <stdexcept>
-# include "AForm.hpp"
+# include <cstdlib>
+# include <ctime>
 
 // Colors
 # define RED "\033[1m\033[31m"

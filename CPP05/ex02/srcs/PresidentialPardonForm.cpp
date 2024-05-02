@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/AForm.hpp"
 #include "../includes/PresidentialPardonForm.hpp"
 
 // Default constructor
