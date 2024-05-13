@@ -12,14 +12,13 @@
 
 #include "../includes/ScalarConverter.hpp"
 
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
-	(void)argv;
-	if (argc != 2)
+	if (ac != 2)
 	{
-		std::cerr << RED << "Error: Invalid number of arguments" << RESET << std::endl;
+		std::cerr << RED "Error: " RESET "Invalid number of arguments." << std::endl;
 		return (1);
 	}
-	ScalarConverter::convert(argv[1]);
+	ScalarConverter::convert(av[1]);
 	return (0);
 }
