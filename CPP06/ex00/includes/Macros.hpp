@@ -6,7 +6,7 @@
 /*   By: jhogonca <jhogonca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 19:21:35 by jhogonca          #+#    #+#             */
-/*   Updated: 2024/05/13 20:24:39 by jhogonca         ###   ########.fr       */
+/*   Updated: 2024/05/14 20:59:26 by jhogonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ enum ScalarType
 	INT,
 	FLOAT,
 	DOUBLE,
-	LONG_DOUBLE
+	LONG_DOUBLE,
+	IMPOSSIBLE
 };
 
 // Logical Operators
