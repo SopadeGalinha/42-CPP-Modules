@@ -51,9 +51,8 @@ std::string toLowerCase(std::string str)
 
 // Check if Char
 bool ScalarConverter::_isChar(const std::string &literal)
-{		
-	return (literal.length() == 1 \
-		&& !std::isdigit(literal[0]) && std::isprint(literal[0]));
+{
+	return (literal.length() == 1 && !std::isdigit(literal[0]) && std::isprint(literal[0]));
 }
 
 // Check if Int
@@ -69,8 +68,8 @@ bool ScalarConverter::_isInt(const std::string &literal)
 			return false;
 	}
 	// check if the number is between the limits of int
-	if (std::atol(literal.c_str()) > std::numeric_limits<int>::max() || \
-		std::atol(literal.c_str()) < std::numeric_limits<int>::min())
+	if (std::atol(literal.c_str()) > INT_MAX ||
+		std::atol(literal.c_str()) < INT_MIN)
 		throw integerOverflowException();
 	return true;
 }
@@ -82,8 +81,7 @@ bool ScalarConverter::_isFloat(const std::string &literal)
 	long i = 0;
 	if (IS_FLOAT_LITERAL(toLowerCase(literal)))
 		return true;
-	if (literal.find('f') == std::string::npos
-		|| literal[literal.length() - 1] != 'f')
+	if (literal.find('f') == std::string::npos || literal[literal.length() - 1] != 'f')
 		return false;
 	if (literal[0] == '-' || literal[0] == '+')
 		i++;
@@ -107,9 +105,9 @@ bool ScalarConverter::_isFloat(const std::string &literal)
 			return false;
 	}
 	// check if the number is between the limits of float
-	if (std::strtof(literal.c_str(), NULL) > FLT_MAX || \
-    std::strtof(literal.c_str(), NULL) < -FLT_MAX)
-    	return false;
+	if (std::strtof(literal.c_str(), NULL) > FLT_MAX ||
+		std::strtof(literal.c_str(), NULL) < -FLT_MAX)
+		throw floatOverflowException();
 
 	return true;
 }
@@ -139,9 +137,9 @@ bool ScalarConverter::_isDouble(const std::string &literal)
 			return false;
 	}
 	// check if the number is between the limits of double
-	if (std::strtod(literal.c_str(), NULL) > DBL_MAX || \
+	if (std::strtod(literal.c_str(), NULL) > DBL_MAX ||
 		std::strtod(literal.c_str(), NULL) < -DBL_MAX)
-		return false;
+		throw doubleOverflowException();
 	return true;
 }
 
@@ -154,7 +152,7 @@ int ScalarConverter::getScalarType(const std::string &literal)
 		return CHAR;
 	if (_isInt(literal))
 		return INT;
-	if(_isFloat(literal))
+	if (_isFloat(literal))
 		return FLOAT;
 	if (_isDouble(literal))
 		return DOUBLE;
@@ -182,7 +180,7 @@ void ScalarConverter::convert(const std::string &literal)
 			fromDouble(literal);
 			break;
 		default:
-			break;
+			throw impossibleConversionException();
 		}
 	}
 	catch (std::exception &e)
@@ -191,31 +189,34 @@ void ScalarConverter::convert(const std::string &literal)
 	}
 }
 
-void ScalarConverter::fromInt(const std::string &literal)
-{
-	int i = std::atoi(literal.c_str());
-	std::cout << BLUE << "[fromInt] -> " << RESET << literal << std::endl;
-	std::cout << "int: " << i << std::endl;
-}
-
 void ScalarConverter::fromChar(const std::string &literal)
 {
-	char c = literal[0];
-	std::cout << BLUE << "[fromChar] -> " << RESET << literal << std::endl;
-	std::cout << "char: " << c << std::endl;
+	std::cout << BLUE
+			  << "[fromChar] -> [" << RESET
+			  << literal << BLUE << "]"
+			  << RESET << std::endl;
+}
+
+void ScalarConverter::fromInt(const std::string &literal)
+{
+	std::cout << BLUE
+			  << "[fromInt] -> [" << RESET
+			  << literal << BLUE << "]"
+			  << RESET << std::endl;
 }
 
 void ScalarConverter::fromFloat(const std::string &literal)
 {
-	float f = std::atof(literal.c_str());
-	std::cout << BLUE << "[fromFloat] -> " << RESET << literal << std::endl;
-	std::cout << "float: " << f << std::endl;
+	std::cout << BLUE
+			  << "[fromFloat] -> [" << RESET
+			  << literal << BLUE << "]"
+			  << RESET << std::endl;
 }
 
 void ScalarConverter::fromDouble(const std::string &literal)
 {
-	double d = std::atof(literal.c_str());
-	std::cout << BLUE << "[fromDouble] -> " << RESET << literal << std::endl;
-	std::cout << "double: " << d << std::endl;
-	
+	std::cout << BLUE
+			  << "[fromDouble] -> [" << RESET
+			  << literal << BLUE << "]"
+			  << RESET << std::endl;
 }

@@ -17,7 +17,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-#include <limits>
+#include <limits.h>
 #include <cmath>
 #include <string.h>
 #include <cstdlib>
@@ -51,6 +51,7 @@ public:
 	static bool _isFloat(const std::string &literal);
 	static bool _isDouble(const std::string &literal);
 
+};
 	// Exceptions
 	class invalidLiteralException : public std::exception
 	{
@@ -75,7 +76,20 @@ public:
 			return (RED "Integer overflow." RESET);
 		}
 	};
-};
-	std::string toLowerCase(std::string str);
 
+	class floatOverflowException : public std::exception
+	{
+		virtual const char *what() const throw()
+		{
+			return (RED "Float overflow." RESET);
+		}
+	};
+
+	class doubleOverflowException : public std::exception
+	{
+		virtual const char *what() const throw()
+		{
+			return (RED "Double overflow." RESET);
+		}
+	};
 #endif
