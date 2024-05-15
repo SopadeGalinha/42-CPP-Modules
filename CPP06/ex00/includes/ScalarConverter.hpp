@@ -21,6 +21,7 @@
 #include <cmath>
 #include <string.h>
 #include <cstdlib>
+#include <cfloat>
 #include "Macros.hpp"
 
 // Class
@@ -64,6 +65,14 @@ public:
 		virtual const char *what() const throw()
 		{
 			return (RED "Impossible conversion." RESET);
+		}
+	};
+
+	class integerOverflowException : public std::exception
+	{
+		virtual const char *what() const throw()
+		{
+			return (RED "Integer overflow." RESET);
 		}
 	};
 };

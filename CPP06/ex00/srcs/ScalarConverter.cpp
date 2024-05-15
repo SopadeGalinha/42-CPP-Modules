@@ -49,42 +49,11 @@ std::string toLowerCase(std::string str)
 	return (str);
 }
 
-// Check if Escape Sequence
-static bool isEscSeq(const char *literal)
-{
-	return (strcmp(literal, "\\b") == 0) || \
-		(strcmp(literal, "\\t") == 0) || \
-		(strcmp(literal, "\\n") == 0) || \
-		(strcmp(literal, "\\v") == 0) || \
-		(strcmp(literal, "\\f") == 0) || \
-		(strcmp(literal, "\\r") == 0) || \
-		(strcmp(literal, "\\e") == 0) || \
-		(strcmp(literal, "\\") == 0) || \
-		(strcmp(literal, "\'") == 0);
-}
-
 // Check if Char
 bool ScalarConverter::_isChar(const std::string &literal)
 {		
-	size_t length = literal.length();
-
-	// Check if the string is a character
-	if (length == 1 && isprint(literal[0]) && !isdigit(literal[0])) {
-		return true;
-	}
-	// Check if the string is a character literal
-	if (length == 3 && literal[0] == '\'' && literal[2] == '\'') {
-		std::cout << "Entre" << std::endl;
-		char ch = literal[1];
-		if (isprint(ch) && ch >= 32 && ch <= 126) {
-			return true;
-		}
-	}
-	// Check if the string is escape sequence
-	if (isEscSeq(literal.c_str())) {
-		return true;
-	}
-	return false;
+	return (literal.length() == 1 \
+		&& !std::isdigit(literal[0]) && std::isprint(literal[0]));
 }
 
 // Check if Int
@@ -100,9 +69,9 @@ bool ScalarConverter::_isInt(const std::string &literal)
 			return false;
 	}
 	// check if the number is between the limits of int
-	if (std::atoi(literal.c_str()) > std::numeric_limits<int>::max() || \
-		std::atoi(literal.c_str()) < std::numeric_limits<int>::min())
-		return false;
+	if (std::atol(literal.c_str()) > std::numeric_limits<int>::max() || \
+		std::atol(literal.c_str()) < std::numeric_limits<int>::min())
+		throw integerOverflowException();
 	return true;
 }
 
@@ -113,8 +82,8 @@ bool ScalarConverter::_isFloat(const std::string &literal)
 	long i = 0;
 	if (IS_FLOAT_LITERAL(toLowerCase(literal)))
 		return true;
-	if (literal.find('.') == std::string::npos \
-		|| literal.find('f') == std::string::npos)
+	if (literal.find('f') == std::string::npos
+		|| literal[literal.length() - 1] != 'f')
 		return false;
 	if (literal[0] == '-' || literal[0] == '+')
 		i++;
@@ -138,9 +107,10 @@ bool ScalarConverter::_isFloat(const std::string &literal)
 			return false;
 	}
 	// check if the number is between the limits of float
-	if (std::atof(literal.c_str()) > std::numeric_limits<float>::max() || \
-		std::atof(literal.c_str()) < std::numeric_limits<float>::min())
-		return false;
+	if (std::strtof(literal.c_str(), NULL) > FLT_MAX || \
+    std::strtof(literal.c_str(), NULL) < -FLT_MAX)
+    	return false;
+
 	return true;
 }
 
@@ -169,8 +139,8 @@ bool ScalarConverter::_isDouble(const std::string &literal)
 			return false;
 	}
 	// check if the number is between the limits of double
-	if (std::strtod(literal.c_str(), NULL) > std::numeric_limits<double>::max() || \
-		std::strtod(literal.c_str(), NULL) < std::numeric_limits<double>::min())
+	if (std::strtod(literal.c_str(), NULL) > DBL_MAX || \
+		std::strtod(literal.c_str(), NULL) < -DBL_MAX)
 		return false;
 	return true;
 }
