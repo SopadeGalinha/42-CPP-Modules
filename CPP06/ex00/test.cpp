@@ -33,7 +33,6 @@ ScalarConverter& ScalarConverter::operator =(const ScalarConverter& src)
 	return *this;
 }
 
-
 static void convertFromChar(char c)
 {
 	// print char
@@ -146,7 +145,6 @@ static void convertFromDouble(double d)
 	else
 		std::cout << "double: " << d << std::endl;
 }
-
 
 void ScalarConverter::convert(const std::string& literal)
 {

@@ -15,10 +15,10 @@
 
 // Libraries
 #include <iostream>
-#include <string>
 #include <iomanip>
 #include <limits.h>
 #include <cmath>
+#include <sstream>
 #include <string.h>
 #include <cstdlib>
 #include <cfloat>
@@ -39,18 +39,6 @@ public:
 	
 	// Methods
 	static void convert(const std::string &literal);
-	static void fromInt(const std::string &literal);
-	static void fromChar(const std::string &literal);
-	static void fromFloat(const std::string &literal);
-	static void fromDouble(const std::string &literal);
-
-	static int getScalarType(const std::string &literal);
-	
-	static bool _isChar(const std::string &literal);
-	static bool _isInt(const std::string &literal);
-	static bool _isFloat(const std::string &literal);
-	static bool _isDouble(const std::string &literal);
-
 };
 	// Exceptions
 	class invalidLiteralException : public std::exception
@@ -69,27 +57,4 @@ public:
 		}
 	};
 
-	class integerOverflowException : public std::exception
-	{
-		virtual const char *what() const throw()
-		{
-			return (RED "Integer overflow." RESET);
-		}
-	};
-
-	class floatOverflowException : public std::exception
-	{
-		virtual const char *what() const throw()
-		{
-			return (RED "Float overflow." RESET);
-		}
-	};
-
-	class doubleOverflowException : public std::exception
-	{
-		virtual const char *what() const throw()
-		{
-			return (RED "Double overflow." RESET);
-		}
-	};
 #endif

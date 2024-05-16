@@ -6,7 +6,7 @@
 /*   By: jhogonca <jhogonca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 19:21:35 by jhogonca          #+#    #+#             */
-/*   Updated: 2024/05/14 20:59:26 by jhogonca         ###   ########.fr       */
+/*   Updated: 2024/05/16 23:01:54 by jhogonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ enum ScalarType
 	CHAR,
 	INT,
 	FLOAT,
-	DOUBLE,
-	LONG_DOUBLE,
-	IMPOSSIBLE
+	DOUBLE
 };
 
 // Logical Operators
 #define AND &&
 #define OR ||
+#define NO_DISPLAYABLE RED "Non displayable" RESET
+#define IMPOSSIBLE RED "impossible" RESET
 
 // Pseudo-Literals
 
@@ -48,11 +48,6 @@ enum ScalarType
 #define DBL_POS_INF "+inf"
 #define DBL_NEG_INF "-inf"
 
-// -> Long Double Literals <- //
-#define LDBL_NAN "nanl"
-#define LDBL_POS_INF "+infl"
-#define LDBL_NEG_INF "-infl"
-
 #define IS_FLOAT_LITERAL(literal) ( \
 	(literal == FLT_NAN) || \
 	(literal == FLT_POS_INF) || \
@@ -63,12 +58,6 @@ enum ScalarType
 	(literal == DBL_NAN) || \
 	(literal == DBL_POS_INF) || \
 	(literal == DBL_NEG_INF) \
-)
-
-#define IS_LONG_DOUBLE_LITERAL(literal) ( \
-	(literal == LDBL_NAN) || \
-	(literal == LDBL_POS_INF) || \
-	(literal == LDBL_NEG_INF) \
 )
 
 #endif
