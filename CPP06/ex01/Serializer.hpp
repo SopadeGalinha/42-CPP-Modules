@@ -17,7 +17,16 @@
 #include <iostream>
 #include <string>
 #include <stdint.h>
-#include "Data.hpp"
+
+// Struct
+typedef struct Data
+{
+	std::string str_data;
+	int			int_data;
+	bool		bool_data;
+	double		double_data;
+} Data;
+
 // Class
 class Serializer
 {
@@ -30,7 +39,6 @@ class Serializer
 	Serializer &operator=(const Serializer &src);
 
 public:
-	
 	// Methods
 	static uintptr_t serialize(Data* ptr);
 	static Data *deserialize(uintptr_t raw);
