@@ -13,33 +13,35 @@
 #include "Serializer.hpp"
 
 int main() {
-    // Cria um objeto Data e inicializa seus membros
-    Data data;
-    data.str_data = "Hello, World!";
-    data.int_data = 42;
-    data.bool_data = true;
-    data.double_data = 3.14159;
+	// Create a data structure
+	Data data;
+	data.str_data = "Hello, World!";
+	data.int_data = 42;
+	data.bool_data = true;
+	data.double_data = 3.14159;
 
-    // Serializa o ponteiro do objeto Data
-    uintptr_t serializedData = Serializer::serialize(&data);
+	// Serialize the data pointer to an integer representation
+	uintptr_t serializedData = Serializer::serialize(&data);
 
-    // Imprime o valor serializado
-    std::cout << "Valor serializado (endereço de memória como uintptr_t): " << serializedData << std::endl;
+	// Print the serialized data
+	std::cout 
+	<< "Valor serializado (endereço de memória como uintptr_t): " 
+	<< serializedData << std::endl;
 
-    // Desserializa o dado serializado de volta para um ponteiro Data
-    Data* deserializedData = Serializer::deserialize(serializedData);
+	// Deserialize the integer representation back to a pointer
+	Data* deserializedData = Serializer::deserialize(serializedData);
 
-    // Verifica se o ponteiro desserializado aponta para o mesmo objeto
-    if (deserializedData == &data) {
-        std::cout << "Serialização e desserialização bem-sucedidas!" << std::endl;
-        std::cout << "Valores dos dados:" << std::endl;
-        std::cout << "str_data: " << deserializedData->str_data << std::endl;
-        std::cout << "int_data: " << deserializedData->int_data << std::endl;
-        std::cout << "bool_data: " << (deserializedData->bool_data ? "true" : "false") << std::endl;
-        std::cout << "double_data: " << deserializedData->double_data << std::endl;
-    } else {
-        std::cout << "Falha na serialização e desserialização!" << std::endl;
-    }
+	// Check if the deserialized data is the same as the original data
+	if (deserializedData == &data) {
+		std::cout << "Serialization and deserialization successful!" << std::endl;
+		std::cout << "Values:" << std::endl;
+		std::cout << "str_data: " << deserializedData->str_data << std::endl;
+		std::cout << "int_data: " << deserializedData->int_data << std::endl;
+		std::cout << "bool_data: " << (deserializedData->bool_data ? "true" : "false") << std::endl;
+		std::cout << "double_data: " << deserializedData->double_data << std::endl;
+	} else {
+		std::cout << "Serialization and deserialization failed!" << std::endl;
+	}
 
-    return 0;
+	return 0;
 }
