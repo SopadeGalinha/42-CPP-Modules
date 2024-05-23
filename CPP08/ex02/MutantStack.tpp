@@ -20,8 +20,8 @@ MutantStack<T>::MutantStack(void) : std::stack<T>() {
 
 // Copy Constructor
 template <typename T>
-MutantStack<T>::MutantStack(MutantStack const &src) : std::stack<T>(src) {
-	return;
+MutantStack<T>::MutantStack(const MutantStack &src) : std::stack<T>() {
+    std::stack<T>::operator=(src);
 }
 
 // Destructor

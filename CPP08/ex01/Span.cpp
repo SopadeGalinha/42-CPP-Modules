@@ -10,11 +10,11 @@ Span::Span(unsigned int n) : _n(n)
 // Copy constructor
 Span::Span(const Span &other)
 {
-	this->_n = other.getN();
-	const std::vector<int> &otherVec = other.getV();
-	for (size_t i = 0; i < otherVec.size(); i++)
-		this->_v.push_back(otherVec[i]);
-	return;
+	if (this == &other)
+		return;
+	this->_n = other._n;
+	const std::vector<int> &otherVec = other._v;
+	this->_v = std::vector<int>(otherVec.begin(), otherVec.end());
 }
 
 // Destructor
