@@ -4,7 +4,7 @@ NAME = btc
 
 # Colors
 GREEN = \033[0;32m
-BOLD_WHITE = \033[1;37m
+BOLD = \033[1m
 RESET = \033[0m
 
 # Sources and objects files
@@ -20,7 +20,7 @@ CXX_FLAGS = -std=c++98 -pedantic-errors -fsanitize=address
 $(NAME): $(OBJS)
 	$(CXX) $(WFLAGS) $(CXX_FLAGS) *.o -o $(NAME)
 	printf "$(GREEN) Program compiled\n$(RESET)"
-	printf "Usage: $(BOLD_WHITE)./$(NAME)$(RESET)\n"
+	printf "Usage: $(BOLD)./$(NAME)$(RESET)\n"
 
 # Objects compilation
 %.o: %.cpp

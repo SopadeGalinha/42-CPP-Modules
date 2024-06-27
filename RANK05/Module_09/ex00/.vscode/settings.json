@@ -1,0 +1,10 @@
+{
+	"files.associations": {
+		"iosfwd": "cpp",
+		"any": "cpp",
+		"expected": "cpp",
+		"optional": "cpp",
+		"variant": "cpp",
+		"*.tcc": "cpp"
+	}
+}
