@@ -5,6 +5,7 @@
 		"expected": "cpp",
 		"optional": "cpp",
 		"variant": "cpp",
-		"*.tcc": "cpp"
+		"*.tcc": "cpp",
+		"algorithm": "cpp"
 	}
 }

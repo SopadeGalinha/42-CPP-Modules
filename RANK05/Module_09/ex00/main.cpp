@@ -1,24 +1,17 @@
 #include "BitcoinExchange.hpp"
 
-void	printData(map<string, float> database)
-{
-	map<string, float>::iterator it = database.begin();
-	while (it != database.end())
+int main(int ac, char **av) {
+
+	std::ifstream in(av[1]);
+	std::ifstream dt(DATABASE);
+	if (ac != 2 || in.bad() || dt.fail())
 	{
-		cout << it->first << " " << it->second << endl;
-		++it;
+		return(std::cerr << \
+		ERROR("could not open file") << std::endl, 1);
 	}
-}
-
-int main() {
-	try {
-
-		BitcoinExchange btc;
-		printData(btc.getDatabase());
-		return 0;
-	}
-	catch (const std::exception &e) {
-		std::cerr << ERROR(e.what()) << std::endl;
-		return 1;
-	}
+	BitcoinExchange btc;
+	btc.processInput(av[1]);
+	in.close();
+	dt.close();
+	return 0;
 }
