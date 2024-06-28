@@ -1,29 +1,48 @@
-# C++ - Module 09 Readme
+# EX00: Reverse Polish Notation (RPN) Calculator
 
-## Overview
-This repository contains solutions for Module 09 of C++ programming exercises. Each exercise focuses on different aspects of C++ programming using the Standard Template Library (STL). The exercises cover topics such as handling Bitcoin exchange rates, implementing Reverse Polish Notation calculations, and sorting integer sequences using merge-insertion sort algorithms.
+## Introduction
 
-## Objective of the Project
-The objective of Module 09 is to familiarize learners with advanced C++ programming concepts, emphasizing the use of STL containers and algorithms. By completing these exercises, participants will gain proficiency in:
-- Implementing solutions using STL containers like vectors and maps.
-- Designing classes and functions adhering to C++98 standards.
-- Managing memory and avoiding memory leaks.
-- Developing Makefiles for compiling and managing project dependencies.
-- Handling various input formats and error conditions effectively.
+Reverse Polish Notation (RPN), also known as postfix notation, is a mathematical notation in which every operator follows all of its operands. This eliminates the need for parentheses to indicate the order of operations, making the evaluation straightforward and unambiguous.
 
-## Contents
-This repository includes:
-- **Exercise 00: Bitcoin Exchange**
-  - Program to calculate Bitcoin values based on historical data.
-- **Exercise 01: Reverse Polish Notation (RPN)**
-  - Implementation of a calculator using RPN expressions.
-- **Exercise 02: PmergeMe**
-  - Sorting positive integer sequences using merge-insertion sort.
+This repository contains a simple C++ implementation of an RPN calculator. The `RPN` class reads an RPN expression as input, evaluates it, and returns the result.
 
-Each exercise folder (`ex00/`, `ex01/`, `ex02/`) contains the respective implementation files (`main.cpp`, `*.cpp`, `*.hpp`) and a `Makefile` to compile the code.
+## How RPN Works
 
-## Module-Specific Rules
-- Each exercise must use at least one STL container.
-- Design considerations like Orthodox Canonical Form for classes are required.
-- Makefiles must include standard rules (`all`, `clean`, `fclean`, `re`).
-- Specific rules apply to error handling, input/output formats, and algorithm implementations.
+In RPN:
+- Operands (numbers) are placed before the operators.
+- The order of operations is determined solely by the position of the operators.
+- Each operator acts on the most recent operands that precede it.
+
+### Example
+
+Consider the expression `(3 + 4) * 5`. In RPN, this is written as `3 4 + 5 *`.
+
+Here's a step-by-step evaluation of `3 4 + 5 *`:
+
+1. Push `3` onto the stack: Stack = `[3]`
+2. Push `4` onto the stack: Stack = `[3, 4]`
+3. Encounter `+` (addition):
+   - Pop `3` and `4` from the stack.
+   - Calculate `3 + 4 = 7`.
+   - Push `7` onto the stack: Stack = `[7]`
+4. Push `5` onto the stack: Stack = `[7, 5]`
+5. Encounter `*` (multiplication):
+   - Pop `7` and `5` from the stack.
+   - Calculate `7 * 5 = 35`.
+   - Push `35` onto the stack: Stack = `[35]`
+6. Result: The final value on the stack is `35`, which is the result of the expression `(3 + 4) * 5`.
+
+## Implementation Details
+
+The C++ implementation provided uses a stack to evaluate the RPN expression:
+- The `RPN` class reads the input expression, splits it into tokens, and evaluates them.
+- It handles basic arithmetic operations (`+`, `-`, `*`, `/`) and checks for division by zero and malformed expressions.
+- The evaluation method returns the final result of the expression.
+
+### Example Usage
+
+To use the RPN calculator, compile the provided C++ code and run it with an RPN expression as a command-line argument:
+
+```bash
+$ make && ./RPN "3 4 + 5 *"
+Result: 35
