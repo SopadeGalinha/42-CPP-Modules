@@ -1,4 +1,4 @@
-# EX00: Reverse Polish Notation (RPN) Calculator
+# Reverse Polish Notation (RPN) Calculator
 
 ## Introduction
 
