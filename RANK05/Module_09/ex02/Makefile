@@ -20,7 +20,7 @@ CXX_FLAGS = -std=c++98 -pedantic-errors -fsanitize=address
 $(NAME): $(OBJS)
 	$(CXX) $(WFLAGS) $(CXX_FLAGS) *.o -o $(NAME)
 	printf "$(GREEN) Program compiled\n$(RESET)"
-	printf "Usage: $(BOLD)./$(NAME) <input_file>\n$(RESET)"
+	printf "Usage: $(BOLD)./$(NAME) <positive numbers>\n$(RESET)"
 
 # Objects compilation
 %.o: %.cpp
