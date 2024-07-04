@@ -33,7 +33,6 @@ using std::string;
 class BitcoinExchange
 {
 	map<string, float> _database;
-	map<string, float> _input_data;
 public:
 	BitcoinExchange();
 	~BitcoinExchange();

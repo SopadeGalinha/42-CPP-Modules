@@ -30,7 +30,17 @@ map<string, float> BitcoinExchange::getDatabase() const
 	return _database;
 }
 
-// Load the database from a CSV file
+/**
+ * @brief Loads a CSV file in the BitcoinExchange class.
+ * 
+ * This function takes a file as input, reads the file line by line,
+ * and parses the data in the file.
+ * The data is stored in a map where the key is a date string and the value is a float.
+ * 
+ * @param file The input file to be loaded.
+ * @return A map containing the data from the file.
+ * @see parseDate
+*/
 map<string, float> BitcoinExchange::loadCSV(const string file)
 {
 	string line;
@@ -60,6 +70,14 @@ map<string, float> BitcoinExchange::loadCSV(const string file)
 	return database;
 }
 
+/**
+ * @brief Parses a date string in the BitcoinExchange class.
+ * 
+ * This function takes a string as input and checks if it is a valid date.
+ * 
+ * @param key The date string to be parsed.
+ * @return true if the date is valid, false otherwise.
+*/
 static bool parseDate(string &key)
 {
 	if (key.length() != 10)
@@ -109,29 +127,19 @@ void BitcoinExchange::handleLine(const string &line)
 		else if (value > MAX_VALUE){
 			return (void)(std::cerr << ERROR("too large a number.") << std::endl);
 		}
-		
+
 		std::map<string, float>::iterator it = _database.find(date);
-		if (it != _database.end()){
+		if (it != _database.end()) {
 			std::cout << date << " => " << value << " = " << (value * it->second) << std::endl;
-		}
-		else
-		{
+		} else {
 			it = _database.lower_bound(date);
-			if (it == _database.begin())
-			{
-				std::cout << it->first << " => " << value << " = " << (value * it->second) << std::endl;
-			}
-			else
-			{
+			if (it != _database.begin())
 				--it;
-				std::cout << it->first << " => " << value << " = " << (value * it->second) << std::endl;
-			}
+			std::cout << it->first << " => " << value << " = " << (value * it->second) << std::endl;
 		}
 	}
 	else
-	{
 		std::cerr << ERROR("bad input => " + line) << std::endl;
-	}
 }
 
 /**
@@ -141,20 +149,19 @@ void BitcoinExchange::handleLine(const string &line)
  * and calls the handleLine function for each line.
  *
  * @param file The input file to be processed.
- */
+*/
 void BitcoinExchange::processInput(const string &file)
 {
 	std::ifstream in(file.c_str());
-	if (!in.is_open())
-	{
-		throw std::runtime_error("Error: could not open input file.");
+	if (!in.is_open()) {
+		std::cerr << ERROR("could not open file") << std::endl;
+		return;
 	}
 
 	std::string line;
 	std::getline(in, line);
 
-	if (line.compare("date | value") != 0)
-	{
+	if (line.compare("date | value") != 0) {
 		std::cerr << ERROR("bad input => " + line) << std::endl;
 		in.close();
 		return;
@@ -166,23 +173,3 @@ void BitcoinExchange::processInput(const string &file)
 	in.close();
 }
 
-
-2011-01-01 => 3 = 0.9
-2011-01-01 => 2 = 0.6
-2011-01-01 => 1 = 0.3
-2011-01-01 => 1.2 = 0.36
-2011-01-07 => 1 = 0.32
-Error: not a positive number.
-Error: bad input => 2001-42-42
-2012-01-11 => 1 = 7.1
-Error: too large a number.
-
-2011-01-03 => 3 = 0.9
-2011-01-03 => 2 = 0.6
-2011-01-03 => 1 = 0.3
-2011-01-03 => 1.2 = 0.36
-2011-01-09 => 1 = 0.32
-Error: not a positive number.
-Error: bad input => 2001-42-42
-2012-01-11 => 1 = 7.1
-Error: too large a number.
