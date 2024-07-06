@@ -90,4 +90,5 @@ For this exercise I choose the `std::deque` and `std::list` , but only one is "b
 [Programiz - Merge Sort Algorithm](https://www.programiz.com/dsa/merge-sort) <br>
 [Programiz - Insertion Sort Algorithm](https://www.programiz.com/dsa/insertion-sort)<br>
 [Carolina Daniel - README.md](https://github.com/caroldaniel/42sp-cursus-cpp/blob/main/cpp_module_09/ex02/README.md)<br>
-[Pavi Ravi - Johnson 's Algorithm in 11min (video)](https://www.youtube.com/watch?v=xc2ua8sQAoE)
+[Pavi Ravi - Johnson 's Algorithm in 11min (video)](https://www.youtube.com/watch?v=xc2ua8sQAoE) <br>
+[Art of Computer Program](https://seriouscomputerist.atariverse.com/media/pdf/book/Art%20of%20Computer%20Programming%20-%20Volume%203%20(Sorting%20&%20Searching).pdf)
